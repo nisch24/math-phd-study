@@ -6,18 +6,31 @@ has_children: true
 permalink: /module_a/
 ---
 
-# Module A — Analysis & Linear Algebra
+<div class="hero-section" style="background: linear-gradient(135deg, #002D72, #3B82F6);">
+  <h1>📊 Module A — Analysis & Linear Algebra</h1>
+  <p>The Introductory Exam Foundation. These two courses establish the mathematical bedrock for the entire PhD program.</p>
+</div>
 
-> **The Introductory Exam Foundation.** These two courses establish the mathematical bedrock for the entire PhD program. Real Analysis provides the rigorous language of limits, convergence, and continuity in abstract spaces, while Matrix Analysis supplies the algebraic and spectral tools used across statistics, optimization, and applied mathematics.
+> Real Analysis provides the rigorous language of limits, convergence, and continuity in abstract spaces, while Matrix Analysis supplies the algebraic and spectral tools used across statistics, optimization, and applied mathematics.
 
 ---
 
 ## Courses
 
-| Code | Title | Key Topics |
-|------|-------|------------|
-| [EN.553.701]({{ site.baseurl }}/module_a/real_analysis/) | Real Analysis | Metric spaces, uniform convergence, Inverse/Implicit Function Theorems |
-| [EN.553.792]({{ site.baseurl }}/module_a/matrix_analysis/) | Matrix Analysis | Spectral decomposition, SVD, variational eigenvalue characterizations |
+<div class="module-grid">
+  <a href="{{ site.baseurl }}/module_a/real_analysis/" class="module-card">
+    <span class="module-label label-foundation">EN.553.701</span>
+    <div class="module-title">Real Analysis</div>
+    <div class="module-desc">Metric spaces, uniform convergence, Inverse/Implicit Function Theorems, Contraction Mapping Principle.</div>
+  </a>
+  <a href="{{ site.baseurl }}/module_a/matrix_analysis/" class="module-card">
+    <span class="module-label label-foundation">EN.553.792</span>
+    <div class="module-title">Matrix Analysis</div>
+    <div class="module-desc">Spectral decomposition, SVD, variational eigenvalue characterizations, positive definiteness.</div>
+  </a>
+</div>
+
+---
 
 ## Prerequisites
 

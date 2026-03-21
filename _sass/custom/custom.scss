@@ -1,0 +1,592 @@
+// =============================================================================
+// JHU Math PhD Study — Custom Light Theme (White & Blue)
+// Premium academic styling for just-the-docs
+// =============================================================================
+
+// ---------------------------------------------------------------------------
+// Color Scheme Definition
+// ---------------------------------------------------------------------------
+$color-scheme: "custom";
+
+// Blues
+$jhu-blue:       #002D72;   // JHU Heritage Blue
+$jhu-spirit:     #68ACE5;   // JHU Spirit Blue
+$accent-blue:    #3B82F6;   // Bright modern blue
+$light-blue:     #DBEAFE;   // Soft blue wash
+$ice-blue:       #EFF6FF;   // Near-white blue
+$slate-700:      #334155;
+$slate-500:      #64748B;
+$slate-300:      #CBD5E1;
+$slate-100:      #F1F5F9;
+
+// Core theme overrides for just-the-docs
+:root {
+  // Body
+  --body-background-color: #FFFFFF;
+  --body-text-color: #{$slate-700};
+  --body-heading-color: #{$jhu-blue};
+
+  // Sidebar / Navigation
+  --sidebar-color: #{$ice-blue};
+  --nav-child-link-color: #{$slate-500};
+
+  // Links
+  --link-color: #{$accent-blue};
+
+  // Search
+  --search-background-color: #{$slate-100};
+  --search-result-preview-color: #{$slate-500};
+
+  // Code
+  --code-background-color: #{$slate-100};
+
+  // Borders
+  --border-color: #{$slate-300};
+}
+
+// ---------------------------------------------------------------------------
+// Typography — Google Fonts loaded via head_custom.html
+// ---------------------------------------------------------------------------
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+  color: $slate-700;
+}
+
+h1, h2, h3, h4, h5, h6,
+.site-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: $jhu-blue;
+}
+
+code,
+pre,
+.highlight {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875em;
+}
+
+// ---------------------------------------------------------------------------
+// Sidebar / Navigation polish
+// ---------------------------------------------------------------------------
+.side-bar {
+  background-color: $ice-blue;
+  border-right: 1px solid $slate-300;
+}
+
+.site-title {
+  font-size: 1.1rem !important;
+  letter-spacing: -0.01em;
+  color: $jhu-blue !important;
+}
+
+.nav-list .nav-list-item {
+  .nav-list-link {
+    transition: background-color 0.15s ease, color 0.15s ease;
+    border-radius: 6px;
+    margin: 1px 8px;
+    padding: 6px 12px;
+
+    &:hover {
+      background-color: $light-blue;
+      color: $jhu-blue;
+    }
+
+    &.active {
+      background-color: $accent-blue;
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Main content area
+// ---------------------------------------------------------------------------
+.main-content {
+  max-width: 52rem;
+
+  h1 {
+    font-size: 2rem;
+    border-bottom: 3px solid $accent-blue;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    color: $jhu-blue;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: $accent-blue;
+      border-radius: 2px;
+      margin-right: 0.5rem;
+      vertical-align: text-bottom;
+    }
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    color: $slate-700;
+    margin-top: 2rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Links
+// ---------------------------------------------------------------------------
+a {
+  color: $accent-blue;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $jhu-blue;
+    text-decoration: underline;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Tables — clean academic style
+// ---------------------------------------------------------------------------
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid $slate-300;
+  margin: 1.5rem 0;
+
+  thead {
+    background: linear-gradient(135deg, $jhu-blue, darken($accent-blue, 5%));
+    th {
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      border: none;
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background-color 0.15s ease;
+      &:nth-child(even) {
+        background-color: $ice-blue;
+      }
+      &:hover {
+        background-color: $light-blue;
+      }
+    }
+
+    td {
+      padding: 10px 16px;
+      border-top: 1px solid lighten($slate-300, 5%);
+      font-size: 0.92rem;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Blockquotes — styled as academic callouts
+// ---------------------------------------------------------------------------
+blockquote {
+  border-left: 4px solid $accent-blue;
+  background: $ice-blue;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: normal;
+  color: $slate-700;
+
+  p {
+    margin: 0;
+  }
+
+  strong {
+    color: $jhu-blue;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Code blocks
+// ---------------------------------------------------------------------------
+pre {
+  background: $slate-100;
+  border: 1px solid $slate-300;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+}
+
+code {
+  background: $slate-100;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+  color: $jhu-blue;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: $slate-700;
+}
+
+// ---------------------------------------------------------------------------
+// Custom Components — Module Cards (used on homepage via HTML)
+// ---------------------------------------------------------------------------
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.module-card {
+  background: #FFFFFF;
+  border: 1px solid $slate-300;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+  color: $slate-700;
+  display: block;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba($jhu-blue, 0.12);
+    border-color: $accent-blue;
+    text-decoration: none;
+  }
+
+  .module-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 0.75rem;
+  }
+
+  .module-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $jhu-blue;
+    margin-bottom: 0.5rem;
+  }
+
+  .module-desc {
+    font-size: 0.875rem;
+    color: $slate-500;
+    line-height: 1.5;
+  }
+}
+
+// Module label colors
+.label-foundation { background: $light-blue; color: $jhu-blue; }
+.label-core       { background: #DCFCE7;     color: #166534; }
+.label-elective   { background: #FEF3C7;     color: #92400E; }
+
+// ---------------------------------------------------------------------------
+// Hero Section
+// ---------------------------------------------------------------------------
+.hero-section {
+  background: linear-gradient(135deg, $jhu-blue 0%, $accent-blue 50%, $jhu-spirit 100%);
+  color: #FFFFFF;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  h1 {
+    color: #FFFFFF;
+    border-bottom: none;
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+
+  p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0;
+    position: relative;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Study Sequence Timeline
+// ---------------------------------------------------------------------------
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.semester-col {
+  h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $accent-blue;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+}
+
+.course-chip {
+  display: block;
+  background: #FFFFFF;
+  border: 1px solid $slate-300;
+  border-left: 4px solid $accent-blue;
+  border-radius: 8px;
+  padding: 0.625rem 0.875rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    border-left-color: $jhu-blue;
+    box-shadow: 0 2px 8px rgba($jhu-blue, 0.08);
+  }
+
+  strong {
+    display: block;
+    color: $jhu-blue;
+    font-size: 0.78rem;
+    margin-bottom: 2px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Quick-Start Steps
+// ---------------------------------------------------------------------------
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.step-card {
+  background: #FFFFFF;
+  border: 1px solid $slate-300;
+  border-radius: 10px;
+  padding: 1.25rem;
+  position: relative;
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: $accent-blue;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    margin-bottom: 0.6rem;
+  }
+
+  .step-title {
+    font-weight: 700;
+    color: $jhu-blue;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .step-desc {
+    font-size: 0.85rem;
+    color: $slate-500;
+    line-height: 1.5;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Info cards (for qualifying exam, computing lab)
+// ---------------------------------------------------------------------------
+.info-card {
+  background: $ice-blue;
+  border: 1px solid $light-blue;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+
+  .info-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+    font-size: 0.92rem;
+  }
+
+  .info-label {
+    font-weight: 700;
+    color: $jhu-blue;
+    min-width: 90px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Details / Summary (collapsible sections)
+// ---------------------------------------------------------------------------
+details {
+  border: 1px solid $slate-300;
+  border-radius: 8px;
+  margin: 0.75rem 0;
+  overflow: hidden;
+
+  summary {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: $jhu-blue;
+    cursor: pointer;
+    background: $ice-blue;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: $light-blue;
+    }
+  }
+
+  &[open] summary {
+    border-bottom: 1px solid $slate-300;
+  }
+
+  > *:not(summary) {
+    padding: 0.25rem 1rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Badges / Tags
+// ---------------------------------------------------------------------------
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+}
+
+.badge-blue    { background: $light-blue; color: $jhu-blue; }
+.badge-green   { background: #DCFCE7;     color: #166534; }
+.badge-amber   { background: #FEF3C7;     color: #92400E; }
+.badge-purple  { background: #EDE9FE;     color: #5B21B6; }
+
+// ---------------------------------------------------------------------------
+// MathJax display equation enhancement
+// ---------------------------------------------------------------------------
+mjx-container[display="true"] {
+  background: $ice-blue;
+  border: 1px solid lighten($slate-300, 3%);
+  border-radius: 6px;
+  padding: 1rem 0.5rem !important;
+  margin: 1.25rem 0 !important;
+  overflow-x: auto;
+}
+
+// ---------------------------------------------------------------------------
+// Horizontal Rules
+// ---------------------------------------------------------------------------
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $slate-300, transparent);
+  margin: 2rem 0;
+}
+
+// ---------------------------------------------------------------------------
+// Search enhancements
+// ---------------------------------------------------------------------------
+.search-input {
+  border-radius: 8px !important;
+  border: 1px solid $slate-300 !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+
+  &:focus {
+    border-color: $accent-blue !important;
+    box-shadow: 0 0 0 3px rgba($accent-blue, 0.15) !important;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Footer
+// ---------------------------------------------------------------------------
+.site-footer {
+  border-top: 1px solid $slate-300;
+  color: $slate-500;
+  font-size: 0.82rem;
+}
+
+// ---------------------------------------------------------------------------
+// Responsive polish
+// ---------------------------------------------------------------------------
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 1.5rem 1.25rem;
+    h1 { font-size: 1.4rem; }
+    p  { font-size: 0.95rem; }
+  }
+
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Print styles (for students who print)
+// ---------------------------------------------------------------------------
+@media print {
+  .side-bar,
+  .search,
+  .site-footer { display: none; }
+
+  .main-content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero-section {
+    background: none;
+    color: #000;
+    border: 2px solid #000;
+  }
+}

@@ -9,21 +9,20 @@ permalink: /qualifying_exam/
 
 > *The JHU Introductory Exam covers Real Analysis, Linear Algebra, and Probability. These three mock exams simulate the format, difficulty, and scope of the qualifying exam. Each problem requires a complete, rigorous proof.*
 
----
-
-## Exam Format
-
-- **Duration**: 4 hours
-- **Problems**: 6 problems (choose 5)
-- **Sections**: Analysis (2), Linear Algebra (2), Probability (2)
-- **Scoring**: Each problem graded 0–10. Pass requires ≥ 30/50.
-- **Style**: Formal proofs required. State any theorems you use.
+<div class="info-card">
+  <div class="info-row"><span class="info-label">⏱ Duration</span> 4 hours</div>
+  <div class="info-row"><span class="info-label">📝 Problems</span> 6 problems (choose 5)</div>
+  <div class="info-row"><span class="info-label">📂 Sections</span> Analysis (2) · Linear Algebra (2) · Probability (2)</div>
+  <div class="info-row"><span class="info-label">📊 Scoring</span> Each problem 0–10. Pass requires ≥ 30/50.</div>
+  <div class="info-row"><span class="info-label">✍️ Style</span> Formal proofs required. State any theorems you use.</div>
+</div>
 
 ---
 
 ## Mock Exam 1
 
-### Analysis
+<details open>
+<summary>📘 Analysis — Problems 1 & 2</summary>
 
 **Problem 1.** Let $f: [0,1] \to \mathbb{R}$ be continuous with $f(0) = f(1)$.
 
@@ -39,7 +38,10 @@ permalink: /qualifying_exam/
 
 (c) Give an example where $f_n \to f$ pointwise, each $f_n$ is continuous, but $f$ is not continuous.
 
-### Linear Algebra
+</details>
+
+<details>
+<summary>📗 Linear Algebra — Problems 3 & 4</summary>
 
 **Problem 3.** Let $A \in \mathbb{R}^{n \times n}$ be symmetric with eigenvalues $\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$.
 
@@ -55,7 +57,10 @@ permalink: /qualifying_exam/
 
 (c) Define the Singular Value Decomposition and state its existence theorem.
 
-### Probability
+</details>
+
+<details>
+<summary>📙 Probability — Problems 5 & 6</summary>
 
 **Problem 5.** Let $X_1, X_2, \ldots$ be i.i.d. random variables with $E[X_1] = \mu$ and $\text{Var}(X_1) = \sigma^2 < \infty$.
 
@@ -73,11 +78,14 @@ permalink: /qualifying_exam/
 
 (c) Prove Borel-Cantelli Lemma I: if $\sum P(A_n) < \infty$, then $P(\limsup A_n) = 0$.
 
+</details>
+
 ---
 
 ## Mock Exam 2
 
-### Analysis
+<details>
+<summary>📘 Analysis — Problems 1 & 2</summary>
 
 **Problem 1.** Let $(X, d)$ be a compact metric space and $f: X \to X$ a continuous function satisfying $d(f(x), f(y)) < d(x, y)$ for all $x \neq y$.
 
@@ -93,7 +101,10 @@ permalink: /qualifying_exam/
 
 (c) Express $D(g^{-1})(0, 0)$ explicitly.
 
-### Linear Algebra
+</details>
+
+<details>
+<summary>📗 Linear Algebra — Problems 3 & 4</summary>
 
 **Problem 3.** Let $A$ be a real $n \times n$ matrix (not necessarily symmetric).
 
@@ -111,7 +122,10 @@ permalink: /qualifying_exam/
 
 (c) If additionally $P = P^T$, prove that $P$ is the orthogonal projection onto $\text{Col}(P)$.
 
-### Probability
+</details>
+
+<details>
+<summary>📙 Probability — Problems 5 & 6</summary>
 
 **Problem 5.** Let $(M_n, \mathcal{F}_n)_{n \geq 0}$ be a martingale with $M_0 = 0$.
 
@@ -129,11 +143,14 @@ permalink: /qualifying_exam/
 
 (c) Is $(X, Y)$ jointly normal? Prove your claim.
 
+</details>
+
 ---
 
 ## Mock Exam 3
 
-### Analysis
+<details>
+<summary>📘 Analysis — Problems 1 & 2</summary>
 
 **Problem 1.** Let $K \subset \mathbb{R}^n$ be compact and $\{U_\alpha\}_{\alpha \in A}$ an open cover.
 
@@ -149,7 +166,10 @@ permalink: /qualifying_exam/
 
 (c) Does this contradict the theorem on term-by-term integration? Why or why not?
 
-### Linear Algebra
+</details>
+
+<details>
+<summary>📗 Linear Algebra — Problems 3 & 4</summary>
 
 **Problem 3.** (Positive definite matrices)
 
@@ -167,7 +187,10 @@ permalink: /qualifying_exam/
 
 (c) Prove that the least squares solution to $Ax = b$ is $x^* = (A^T A)^{-1} A^T b$.
 
-### Probability
+</details>
+
+<details>
+<summary>📙 Probability — Problems 5 & 6</summary>
 
 **Problem 5.** (Convergence)
 
@@ -189,25 +212,49 @@ permalink: /qualifying_exam/
 
 (d) Construct an approximate 95% confidence interval for $\lambda$.
 
+</details>
+
 ---
 
 ## Grading Rubric
 
 | Score | Description |
 |-------|-------------|
-| 9–10 | Complete, rigorous proof with clear exposition |
-| 7–8 | Correct proof with minor gaps or unclear steps |
-| 5–6 | Correct approach, significant gaps in rigor |
-| 3–4 | Partial understanding, major errors or omissions |
-| 1–2 | Relevant ideas mentioned but no coherent proof |
-| 0 | Blank or completely incorrect |
+| 9–10  | Complete, rigorous proof with clear exposition |
+| 7–8   | Correct proof with minor gaps or unclear steps |
+| 5–6   | Correct approach, significant gaps in rigor |
+| 3–4   | Partial understanding, major errors or omissions |
+| 1–2   | Relevant ideas mentioned but no coherent proof |
+| 0     | Blank or completely incorrect |
 
 ---
 
 ## Preparation Tips
 
-1. **Start with definitions**: Begin every answer by stating the relevant definitions. This grounds your proof and earns partial credit.
-2. **State theorems you use**: When invoking a theorem (e.g., Bolzano-Weierstrass, Courant-Fischer), state it explicitly.
-3. **Time management**: Allocate ~45 minutes per problem. Skip and return if stuck.
-4. **Practice proof writing**: Work through Rudin chapters 2, 3, 7, 9 and Horn & Johnson chapters 1, 4, 7.
-5. **Review past exams**: JHU departmental past qualifying exams are the best preparation resource.
+<div class="steps-grid">
+  <div class="step-card">
+    <div class="step-number">1</div>
+    <div class="step-title">Start with Definitions</div>
+    <div class="step-desc">Begin every answer by stating the relevant definitions. This grounds your proof and earns partial credit.</div>
+  </div>
+  <div class="step-card">
+    <div class="step-number">2</div>
+    <div class="step-title">State Theorems</div>
+    <div class="step-desc">When invoking a theorem (e.g., Bolzano-Weierstrass, Courant-Fischer), state it explicitly before using it.</div>
+  </div>
+  <div class="step-card">
+    <div class="step-number">3</div>
+    <div class="step-title">Time Management</div>
+    <div class="step-desc">Allocate ~45 minutes per problem. Skip and return if stuck — don't lose time on one problem.</div>
+  </div>
+  <div class="step-card">
+    <div class="step-number">4</div>
+    <div class="step-title">Practice Proof Writing</div>
+    <div class="step-desc">Work through Rudin Ch. 2, 3, 7, 9 and Horn & Johnson Ch. 1, 4, 7 for exam-style practice.</div>
+  </div>
+  <div class="step-card">
+    <div class="step-number">5</div>
+    <div class="step-title">Review Past Exams</div>
+    <div class="step-desc">JHU departmental past qualifying exams are the best preparation resource for format and difficulty.</div>
+  </div>
+</div>

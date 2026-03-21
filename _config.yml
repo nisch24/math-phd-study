@@ -9,11 +9,39 @@ description: >-
   PhD in Applied Mathematics and Statistics, covering all core
   coursework, computing skills, and qualifying exam preparation.
 
-baseurl: "/jhu-math-phd-study"
+baseurl: "/math-phd-study"
 url: ""
 
 # Theme (GitHub Pages compatible)
-remote_theme: just-the-docs/just-the-docs
+remote_theme: just-the-docs/just-the-docs@v0.10.0
+
+# Color scheme — light with blue accent
+color_scheme: custom
+
+# Search
+search_enabled: true
+search.button: true
+
+# Heading anchors (clickable § links on headings)
+heading_anchors: true
+
+# Back to top link
+back_to_top: true
+back_to_top_text: "↑ Back to top"
+
+# Auxiliary links (top-right of site)
+aux_links:
+  "View on GitHub": "https://github.com/nisch24/math-phd-study"
+aux_links_new_tab: true
+
+# Footer
+footer_content: >-
+  <em>This resource is not affiliated with Johns Hopkins University.
+  It is an independent study guide based on publicly available course
+  descriptions and standard graduate-level textbooks.</em>
+
+# Navigation
+nav_sort: case_insensitive
 
 # Markdown rendering
 markdown: kramdown

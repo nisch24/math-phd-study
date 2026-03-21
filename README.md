@@ -5,56 +5,107 @@ nav_order: 1
 permalink: /
 ---
 
-# JHU Applied Mathematics & Statistics — PhD Self-Study Guide
+<div class="hero-section">
+  <h1>📐 JHU Applied Mathematics & Statistics</h1>
+  <p>A complete, open-source self-study framework for the Johns Hopkins University PhD in Applied Mathematics and Statistics. Every lesson plan, problem set, and computing tutorial features full LaTeX support for mathematical notation.</p>
+</div>
 
-> A complete, open-source self-study framework for the **Johns Hopkins University PhD in Applied Mathematics and Statistics**. Every lesson plan, problem set, and computing tutorial is written in Markdown with full LaTeX support for mathematical notation.
+## Program Modules
 
----
+<div class="module-grid">
 
-## Program Roadmap
+  <a href="{{ site.baseurl }}/module_a/" class="module-card">
+    <span class="module-label label-foundation">Foundation</span>
+    <div class="module-title">Module A — Analysis & Linear Algebra</div>
+    <div class="module-desc">Real Analysis (553.701) and Matrix Analysis (553.792). The mathematical bedrock for the entire program.</div>
+  </a>
 
-The curriculum is organized into **five modules** that mirror the department's core areas. Each module contains detailed lesson plans with learning objectives, rigorous theory, primary textbook references, and curated problem sets.
+  <a href="{{ site.baseurl }}/module_b/" class="module-card">
+    <span class="module-label label-core">Core</span>
+    <div class="module-title">Module B — Probability & Stochastic Processes</div>
+    <div class="module-desc">Probability Theory I & II (553.720, 553.721). Measure-theoretic probability and martingale theory.</div>
+  </a>
 
-| Module | Area | Courses | Status |
-|--------|------|---------|--------|
-| [**A**]({{ site.baseurl }}/module_a/) | Analysis & Linear Algebra | EN.553.701, EN.553.792 | Foundation |
-| [**B**]({{ site.baseurl }}/module_b/) | Probability & Stochastic Processes | EN.553.720, EN.553.721 | Core |
-| [**C**]({{ site.baseurl }}/module_c/) | Statistics & Statistical Learning | EN.553.730, EN.553.731 | Core |
-| [**D**]({{ site.baseurl }}/module_d/) | Optimization & Operations Research | EN.553.761, EN.553.762 | Core |
-| [**E**]({{ site.baseurl }}/module_e/) | Discrete Mathematics | EN.553.671, EN.553.672 | Elective |
+  <a href="{{ site.baseurl }}/module_c/" class="module-card">
+    <span class="module-label label-core">Core</span>
+    <div class="module-title">Module C — Statistics & Statistical Learning</div>
+    <div class="module-desc">Statistical Theory I & II (553.730, 553.731). Estimation, hypothesis testing, and asymptotic theory.</div>
+  </a>
+
+  <a href="{{ site.baseurl }}/module_d/" class="module-card">
+    <span class="module-label label-core">Core</span>
+    <div class="module-title">Module D — Optimization & Operations Research</div>
+    <div class="module-desc">Nonlinear Optimization I & II (553.761, 553.762). Convergence theory and practical algorithms.</div>
+  </a>
+
+  <a href="{{ site.baseurl }}/module_e/" class="module-card">
+    <span class="module-label label-elective">Elective</span>
+    <div class="module-title">Module E — Discrete Mathematics</div>
+    <div class="module-desc">Combinatorial Analysis (553.671) and Graph Theory (553.672). Counting, structure, and algorithms.</div>
+  </a>
+
+</div>
 
 ---
 
 ## Recommended Study Sequence
 
-```
-Semester 1          Semester 2          Semester 3          Semester 4
-┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-│ Real         │    │ Probability │    │ Statistical │    │ Nonlinear   │
-│ Analysis     │───▶│ Theory II   │───▶│ Theory II   │    │ Optim. II   │
-│ (553.701)    │    │ (553.721)   │    │ (553.731)   │    │ (553.762)   │
-└─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
-┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-│ Matrix       │    │ Statistical │    │ Nonlinear   │    │ Graph       │
-│ Analysis     │───▶│ Theory I    │───▶│ Optim. I    │    │ Theory      │
-│ (553.792)    │    │ (553.730)   │    │ (553.761)   │    │ (553.672)   │
-└─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
-┌─────────────┐    ┌─────────────┐
-│ Probability  │    │ Combinat.   │
-│ Theory I     │    │ Analysis    │
-│ (553.720)    │    │ (553.671)   │
-└─────────────┘    └─────────────┘
-```
+<div class="timeline">
+  <div class="semester-col">
+    <h4>Semester 1</h4>
+    <div class="course-chip"><strong>553.701</strong> Real Analysis</div>
+    <div class="course-chip"><strong>553.792</strong> Matrix Analysis</div>
+    <div class="course-chip"><strong>553.720</strong> Probability Theory I</div>
+  </div>
+  <div class="semester-col">
+    <h4>Semester 2</h4>
+    <div class="course-chip"><strong>553.721</strong> Probability Theory II</div>
+    <div class="course-chip"><strong>553.730</strong> Statistical Theory I</div>
+    <div class="course-chip"><strong>553.671</strong> Combinatorial Analysis</div>
+  </div>
+  <div class="semester-col">
+    <h4>Semester 3</h4>
+    <div class="course-chip"><strong>553.731</strong> Statistical Theory II</div>
+    <div class="course-chip"><strong>553.761</strong> Nonlinear Optim. I</div>
+  </div>
+  <div class="semester-col">
+    <h4>Semester 4</h4>
+    <div class="course-chip"><strong>553.762</strong> Nonlinear Optim. II</div>
+    <div class="course-chip"><strong>553.672</strong> Graph Theory</div>
+  </div>
+</div>
 
 ---
 
 ## Quick-Start Guide
 
-1. **Prerequisites** — Undergraduate-level linear algebra, multivariable calculus, probability, and mathematical maturity (comfort with proofs).
-2. **Begin with Module A** — Real Analysis and Matrix Analysis form the language used throughout the program.
-3. **Parallel study is encouraged** — Probability Theory I can be taken concurrently with Module A courses.
-4. **Use the Computing Lab** — Each theory module is paired with hands-on computational exercises in the [Computing Laboratory]({{ site.baseurl }}/computing_lab/).
-5. **Prepare for quals** — After completing Modules A and B, attempt the [Qualifying Exam Simulations]({{ site.baseurl }}/qualifying_exam/).
+<div class="steps-grid">
+  <div class="step-card">
+    <div class="step-number">1</div>
+    <div class="step-title">Prerequisites</div>
+    <div class="step-desc">Undergraduate-level linear algebra, multivariable calculus, probability, and mathematical maturity (comfort with proofs).</div>
+  </div>
+  <div class="step-card">
+    <div class="step-number">2</div>
+    <div class="step-title">Begin with Module A</div>
+    <div class="step-desc">Real Analysis and Matrix Analysis form the language used throughout the program.</div>
+  </div>
+  <div class="step-card">
+    <div class="step-number">3</div>
+    <div class="step-title">Parallel Study</div>
+    <div class="step-desc">Probability Theory I can be taken concurrently with Module A courses.</div>
+  </div>
+  <div class="step-card">
+    <div class="step-number">4</div>
+    <div class="step-title">Computing Lab</div>
+    <div class="step-desc">Each theory module is paired with hands-on exercises in the <a href="{{ site.baseurl }}/computing_lab/">Computing Laboratory</a>.</div>
+  </div>
+  <div class="step-card">
+    <div class="step-number">5</div>
+    <div class="step-title">Qualifying Exam Prep</div>
+    <div class="step-desc">After Modules A & B, attempt the <a href="{{ site.baseurl }}/qualifying_exam/">Qualifying Exam Simulations</a>.</div>
+  </div>
+</div>
 
 ---
 
@@ -62,18 +113,14 @@ Semester 1          Semester 2          Semester 3          Semester 4
 
 | Section | Description |
 |---------|-------------|
-| [Computing Laboratory]({{ site.baseurl }}/computing_lab/) | Python/C++, MATLAB, and LaTeX tutorials |
-| [Qualifying Exam Simulation]({{ site.baseurl }}/qualifying_exam/) | Mock exams with formal proof-writing |
-| [Resources]({{ site.baseurl }}/resources/) | Open-access lecture notes (MIT OCW, Stanford, etc.) |
+| [🖥️ Computing Laboratory]({{ site.baseurl }}/computing_lab/) | Python/C++, MATLAB, and LaTeX tutorials |
+| [📝 Qualifying Exam Simulation]({{ site.baseurl }}/qualifying_exam/) | Mock exams with formal proof-writing |
+| [📚 Resources]({{ site.baseurl }}/resources/) | Open-access lecture notes (MIT OCW, Stanford, etc.) |
 
 ---
 
 ## Technical Notes
 
-- **Math Rendering**: All LaTeX notation uses MathJax. Equations are written inline with `$...$` and in display mode with `$$...$$`.
-- **GitHub Pages**: Push this repository to GitHub and enable Pages from `Settings → Pages` to host at `https://<username>.github.io/jhu-math-phd-study/`.
-- **Local Preview**: Install Jekyll (`gem install jekyll bundler`), then run `bundle exec jekyll serve`.
-
----
-
-*This resource is not affiliated with Johns Hopkins University. It is an independent study guide based on publicly available course descriptions and standard graduate-level textbooks.*
+- **Math Rendering** — All LaTeX notation uses MathJax. Inline with `$...$` and display mode with `$$...$$`.
+- **GitHub Pages** — Push this repository to GitHub and enable Pages from **Settings → Pages**.
+- **Local Preview** — Install Jekyll (`gem install jekyll bundler`), then run `bundle exec jekyll serve`.
