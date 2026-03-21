@@ -16,8 +16,8 @@ permalink: /module_c/
 
 | Code | Title | Key Topics |
 |------|-------|------------|
-| [EN.553.730](statistical_theory_1/lesson_plan) | Statistical Theory I | Sufficiency, Fisher Information, Cramér-Rao, UMVUE |
-| [EN.553.731](statistical_theory_2/lesson_plan) | Statistical Theory II | Neyman-Pearson, LRT, MLE asymptotics |
+| [EN.553.730]({{ site.baseurl }}/module_c/statistical_theory_1/) | Statistical Theory I | Sufficiency, Fisher Information, Cramér-Rao, UMVUE |
+| [EN.553.731]({{ site.baseurl }}/module_c/statistical_theory_2/) | Statistical Theory II | Neyman-Pearson, LRT, MLE asymptotics |
 
 ## Prerequisites
 

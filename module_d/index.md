@@ -16,8 +16,8 @@ permalink: /module_d/
 
 | Code | Title | Key Topics |
 |------|-------|------------|
-| [EN.553.761](nonlinear_optimization_1/lesson_plan) | Nonlinear Optimization I | Optimality conditions, line search, Newton, BFGS |
-| [EN.553.762](nonlinear_optimization_2/lesson_plan) | Nonlinear Optimization II | Lagrangian duality, KKT, interior-point methods |
+| [EN.553.761]({{ site.baseurl }}/module_d/nonlinear_optimization_1/) | Nonlinear Optimization I | Optimality conditions, line search, Newton, BFGS |
+| [EN.553.762]({{ site.baseurl }}/module_d/nonlinear_optimization_2/) | Nonlinear Optimization II | Lagrangian duality, KKT, interior-point methods |
 
 ## Prerequisites
 

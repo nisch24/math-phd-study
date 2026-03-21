@@ -3,6 +3,7 @@ layout: default
 title: "EN.553.762 — Nonlinear Optimization II"
 parent: "Module D — Optimization & Operations Research"
 nav_order: 2
+permalink: /module_d/nonlinear_optimization_2/
 ---
 
 # EN.553.762 — Nonlinear Optimization II

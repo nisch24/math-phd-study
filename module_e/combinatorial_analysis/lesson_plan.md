@@ -3,6 +3,7 @@ layout: default
 title: "EN.553.671 — Combinatorial Analysis"
 parent: "Module E — Discrete Mathematics"
 nav_order: 1
+permalink: /module_e/combinatorial_analysis/
 ---
 
 # EN.553.671 — Combinatorial Analysis

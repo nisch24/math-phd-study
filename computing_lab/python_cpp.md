@@ -3,6 +3,7 @@ layout: default
 title: "Python & C++ Numerical Algorithms"
 parent: "Computing Laboratory"
 nav_order: 1
+permalink: /computing_lab/python_cpp/
 ---
 
 # Python & C++ Numerical Algorithms

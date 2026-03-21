@@ -3,6 +3,7 @@ layout: default
 title: "EN.553.731 — Statistical Theory II"
 parent: "Module C — Statistics & Statistical Learning"
 nav_order: 2
+permalink: /module_c/statistical_theory_2/
 ---
 
 # EN.553.731 — Statistical Theory II

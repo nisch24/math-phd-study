@@ -3,6 +3,7 @@ layout: default
 title: "EN.553.720 — Probability Theory I"
 parent: "Module B — Probability & Stochastic Processes"
 nav_order: 1
+permalink: /module_b/probability_theory_1/
 ---
 
 # EN.553.720 — Probability Theory I

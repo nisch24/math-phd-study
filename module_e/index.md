@@ -16,8 +16,8 @@ permalink: /module_e/
 
 | Code | Title | Key Topics |
 |------|-------|------------|
-| [EN.553.671](combinatorial_analysis/lesson_plan) | Combinatorial Analysis | Generating functions, Pólya counting, inclusion-exclusion |
-| [EN.553.672](graph_theory/lesson_plan) | Graph Theory | Eulerian/Hamiltonian circuits, network flows, coloring |
+| [EN.553.671]({{ site.baseurl }}/module_e/combinatorial_analysis/) | Combinatorial Analysis | Generating functions, Pólya counting, inclusion-exclusion |
+| [EN.553.672]({{ site.baseurl }}/module_e/graph_theory/) | Graph Theory | Eulerian/Hamiltonian circuits, network flows, coloring |
 
 ## Prerequisites
 

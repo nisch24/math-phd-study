@@ -16,8 +16,8 @@ permalink: /module_a/
 
 | Code | Title | Key Topics |
 |------|-------|------------|
-| [EN.553.701](real_analysis/lesson_plan) | Real Analysis | Metric spaces, uniform convergence, Inverse/Implicit Function Theorems |
-| [EN.553.792](matrix_analysis/lesson_plan) | Matrix Analysis | Spectral decomposition, SVD, variational eigenvalue characterizations |
+| [EN.553.701]({{ site.baseurl }}/module_a/real_analysis/) | Real Analysis | Metric spaces, uniform convergence, Inverse/Implicit Function Theorems |
+| [EN.553.792]({{ site.baseurl }}/module_a/matrix_analysis/) | Matrix Analysis | Spectral decomposition, SVD, variational eigenvalue characterizations |
 
 ## Prerequisites
 

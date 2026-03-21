@@ -3,6 +3,7 @@ layout: default
 title: "EN.553.792 — Matrix Analysis"
 parent: "Module A — Analysis & Linear Algebra"
 nav_order: 2
+permalink: /module_a/matrix_analysis/
 ---
 
 # EN.553.792 — Matrix Analysis

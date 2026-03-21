@@ -17,11 +17,11 @@ The curriculum is organized into **five modules** that mirror the department's c
 
 | Module | Area | Courses | Status |
 |--------|------|---------|--------|
-| [**A**](module_a/) | Analysis & Linear Algebra | EN.553.701, EN.553.792 | Foundation |
-| [**B**](module_b/) | Probability & Stochastic Processes | EN.553.720, EN.553.721 | Core |
-| [**C**](module_c/) | Statistics & Statistical Learning | EN.553.730, EN.553.731 | Core |
-| [**D**](module_d/) | Optimization & Operations Research | EN.553.761, EN.553.762 | Core |
-| [**E**](module_e/) | Discrete Mathematics | EN.553.671, EN.553.672 | Elective |
+| [**A**]({{ site.baseurl }}/module_a/) | Analysis & Linear Algebra | EN.553.701, EN.553.792 | Foundation |
+| [**B**]({{ site.baseurl }}/module_b/) | Probability & Stochastic Processes | EN.553.720, EN.553.721 | Core |
+| [**C**]({{ site.baseurl }}/module_c/) | Statistics & Statistical Learning | EN.553.730, EN.553.731 | Core |
+| [**D**]({{ site.baseurl }}/module_d/) | Optimization & Operations Research | EN.553.761, EN.553.762 | Core |
+| [**E**]({{ site.baseurl }}/module_e/) | Discrete Mathematics | EN.553.671, EN.553.672 | Elective |
 
 ---
 
@@ -53,8 +53,8 @@ Semester 1          Semester 2          Semester 3          Semester 4
 1. **Prerequisites** — Undergraduate-level linear algebra, multivariable calculus, probability, and mathematical maturity (comfort with proofs).
 2. **Begin with Module A** — Real Analysis and Matrix Analysis form the language used throughout the program.
 3. **Parallel study is encouraged** — Probability Theory I can be taken concurrently with Module A courses.
-4. **Use the Computing Lab** — Each theory module is paired with hands-on computational exercises in the [Computing Laboratory](computing_lab/).
-5. **Prepare for quals** — After completing Modules A and B, attempt the [Qualifying Exam Simulations](qualifying_exam/).
+4. **Use the Computing Lab** — Each theory module is paired with hands-on computational exercises in the [Computing Laboratory]({{ site.baseurl }}/computing_lab/).
+5. **Prepare for quals** — After completing Modules A and B, attempt the [Qualifying Exam Simulations]({{ site.baseurl }}/qualifying_exam/).
 
 ---
 
@@ -62,9 +62,9 @@ Semester 1          Semester 2          Semester 3          Semester 4
 
 | Section | Description |
 |---------|-------------|
-| [Computing Laboratory](computing_lab/) | Python/C++, MATLAB, and LaTeX tutorials |
-| [Qualifying Exam Simulation](qualifying_exam/) | Mock exams with formal proof-writing |
-| [Resources](resources) | Open-access lecture notes (MIT OCW, Stanford, etc.) |
+| [Computing Laboratory]({{ site.baseurl }}/computing_lab/) | Python/C++, MATLAB, and LaTeX tutorials |
+| [Qualifying Exam Simulation]({{ site.baseurl }}/qualifying_exam/) | Mock exams with formal proof-writing |
+| [Resources]({{ site.baseurl }}/resources/) | Open-access lecture notes (MIT OCW, Stanford, etc.) |
 
 ---
 

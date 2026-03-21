@@ -3,6 +3,7 @@ layout: default
 title: "EN.553.672 — Graph Theory"
 parent: "Module E — Discrete Mathematics"
 nav_order: 2
+permalink: /module_e/graph_theory/
 ---
 
 # EN.553.672 — Graph Theory

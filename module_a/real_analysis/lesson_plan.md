@@ -3,6 +3,7 @@ layout: default
 title: "EN.553.701 — Real Analysis"
 parent: "Module A — Analysis & Linear Algebra"
 nav_order: 1
+permalink: /module_a/real_analysis/
 ---
 
 # EN.553.701 — Real Analysis

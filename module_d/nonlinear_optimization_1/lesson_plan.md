@@ -3,6 +3,7 @@ layout: default
 title: "EN.553.761 — Nonlinear Optimization I"
 parent: "Module D — Optimization & Operations Research"
 nav_order: 1
+permalink: /module_d/nonlinear_optimization_1/
 ---
 
 # EN.553.761 — Nonlinear Optimization I

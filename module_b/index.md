@@ -16,8 +16,8 @@ permalink: /module_b/
 
 | Code | Title | Key Topics |
 |------|-------|------------|
-| [EN.553.720](probability_theory_1/lesson_plan) | Probability Theory I | $\sigma$-algebras, Lebesgue integration, Laws of Large Numbers |
-| [EN.553.721](probability_theory_2/lesson_plan) | Probability Theory II | Radon-Nikodym, martingales, Brownian motion |
+| [EN.553.720]({{ site.baseurl }}/module_b/probability_theory_1/) | Probability Theory I | $\sigma$-algebras, Lebesgue integration, Laws of Large Numbers |
+| [EN.553.721]({{ site.baseurl }}/module_b/probability_theory_2/) | Probability Theory II | Radon-Nikodym, martingales, Brownian motion |
 
 ## Prerequisites
 

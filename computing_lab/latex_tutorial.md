@@ -3,6 +3,7 @@ layout: default
 title: "LaTeX Technical Writing"
 parent: "Computing Laboratory"
 nav_order: 3
+permalink: /computing_lab/latex_tutorial/
 ---
 
 # LaTeX Technical Writing Tutorial

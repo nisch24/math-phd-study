@@ -3,6 +3,7 @@ layout: default
 title: "MATLAB Matrix & Optimization"
 parent: "Computing Laboratory"
 nav_order: 2
+permalink: /computing_lab/matlab/
 ---
 
 # MATLAB Matrix & Optimization Tutorials

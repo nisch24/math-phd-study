@@ -3,6 +3,7 @@ layout: default
 title: "EN.553.721 — Probability Theory II"
 parent: "Module B — Probability & Stochastic Processes"
 nav_order: 2
+permalink: /module_b/probability_theory_2/
 ---
 
 # EN.553.721 — Probability Theory II

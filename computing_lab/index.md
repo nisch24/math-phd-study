@@ -16,9 +16,9 @@ permalink: /computing_lab/
 
 | Tutorial | Tools | Connected Modules |
 |----------|-------|-------------------|
-| [Python & C++ Numerical Algorithms](python_cpp) | Python (NumPy/SciPy), C++ (Eigen) | A, B, D |
-| [MATLAB Matrix & Optimization](matlab) | MATLAB | A, D |
-| [LaTeX Technical Writing](latex_tutorial) | LaTeX, BibTeX, TikZ | All |
+| [Python & C++ Numerical Algorithms]({{ site.baseurl }}/computing_lab/python_cpp/) | Python (NumPy/SciPy), C++ (Eigen) | A, B, D |
+| [MATLAB Matrix & Optimization]({{ site.baseurl }}/computing_lab/matlab/) | MATLAB | A, D |
+| [LaTeX Technical Writing]({{ site.baseurl }}/computing_lab/latex_tutorial/) | LaTeX, BibTeX, TikZ | All |
 
 ## Setup Requirements
 

@@ -1,6 +1,6 @@
 # =============================================================================
 # JHU PhD Applied Mathematics & Statistics — Self-Study Framework
-# Jekyll Configuration
+# Jekyll Configuration for GitHub Pages
 # =============================================================================
 
 title: "JHU Applied Math & Stats PhD — Self-Study Guide"
@@ -12,7 +12,7 @@ description: >-
 baseurl: "/jhu-math-phd-study"
 url: ""
 
-# Theme
+# Theme (GitHub Pages compatible)
 remote_theme: just-the-docs/just-the-docs
 
 # Markdown rendering
@@ -21,37 +21,10 @@ kramdown:
   math_engine: mathjax
   input: GFM
 
-# Navigation structure
-just_the_docs:
-  collections:
-    module_a:
-      name: "Module A — Analysis & Linear Algebra"
-      nav_fold: true
-    module_b:
-      name: "Module B — Probability & Stochastic Processes"
-      nav_fold: true
-    module_c:
-      name: "Module C — Statistics & Statistical Learning"
-      nav_fold: true
-    module_d:
-      name: "Module D — Optimization & Operations Research"
-      nav_fold: true
-    module_e:
-      name: "Module E — Discrete Mathematics"
-      nav_fold: true
-
-# Collections
-collections:
-  module_a:
-    output: true
-  module_b:
-    output: true
-  module_c:
-    output: true
-  module_d:
-    output: true
-  module_e:
-    output: true
+# Plugins (must include remote-theme for GitHub Pages)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-remote-theme
 
 # Build
 exclude:
@@ -59,10 +32,5 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
-
-# Plugins
-plugins:
-  - jekyll-seo-tag
-
-# Head extra (for MathJax)
-head_extra: "_includes/mathjax.html"
+  - LICENSE
+  - "*.gemspec"
