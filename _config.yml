@@ -1,0 +1,68 @@
+# =============================================================================
+# JHU PhD Applied Mathematics & Statistics — Self-Study Framework
+# Jekyll Configuration
+# =============================================================================
+
+title: "JHU Applied Math & Stats PhD — Self-Study Guide"
+description: >-
+  A complete self-study framework for the Johns Hopkins University
+  PhD in Applied Mathematics and Statistics, covering all core
+  coursework, computing skills, and qualifying exam preparation.
+
+baseurl: "/jhu-math-phd-study"
+url: ""
+
+# Theme
+remote_theme: just-the-docs/just-the-docs
+
+# Markdown rendering
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  input: GFM
+
+# Navigation structure
+just_the_docs:
+  collections:
+    module_a:
+      name: "Module A — Analysis & Linear Algebra"
+      nav_fold: true
+    module_b:
+      name: "Module B — Probability & Stochastic Processes"
+      nav_fold: true
+    module_c:
+      name: "Module C — Statistics & Statistical Learning"
+      nav_fold: true
+    module_d:
+      name: "Module D — Optimization & Operations Research"
+      nav_fold: true
+    module_e:
+      name: "Module E — Discrete Mathematics"
+      nav_fold: true
+
+# Collections
+collections:
+  module_a:
+    output: true
+  module_b:
+    output: true
+  module_c:
+    output: true
+  module_d:
+    output: true
+  module_e:
+    output: true
+
+# Build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+
+# Head extra (for MathJax)
+head_extra: "_includes/mathjax.html"
