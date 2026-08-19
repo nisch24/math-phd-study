@@ -8,7 +8,7 @@ permalink: /computing_lab/latex_tutorial/
 
 # LaTeX Technical Writing Tutorial
 
-> *Professional mathematical typesetting for dissertations, papers, and technical reports. This tutorial covers document structure, theorem environments, mathematical notation, bibliographies, and TikZ diagrams.*
+> *Professional mathematical typesetting for dissertations, journal papers, and technical reports. This tutorial covers document structure, theorem and proof environments, mathematical notation conventions, bibliography management with BibTeX, and TikZ diagrams — everything needed for PhD-level writing.*
 
 ---
 

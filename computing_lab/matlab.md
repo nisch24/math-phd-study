@@ -8,7 +8,7 @@ permalink: /computing_lab/matlab/
 
 # MATLAB Matrix & Optimization Tutorials
 
-> *MATLAB excels at matrix computations and optimization prototyping. These tutorials demonstrate key factorizations and optimization algorithms with visual convergence analysis.*
+> *MATLAB excels at matrix computations, numerical linear algebra, and optimization prototyping. These tutorials pair key results from Modules A and D with complete, annotated code and convergence analysis, making the theoretical guarantees visually concrete.*
 
 ---
 

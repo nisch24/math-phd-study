@@ -8,7 +8,7 @@ permalink: /module_a/matrix_analysis/
 
 # EN.553.792 — Matrix Analysis
 
-> *A rigorous study of matrices as linear operators, with emphasis on spectral theory, decompositions, and their applications across statistics, optimization, and applied mathematics.*
+> *A rigorous study of matrices as linear operators, with emphasis on spectral theory, canonical decompositions, and their applications across statistics, optimization, and applied mathematics. This course provides the algebraic toolkit used throughout the PhD program.*
 
 ---
 
@@ -16,11 +16,11 @@ permalink: /module_a/matrix_analysis/
 
 Upon completing this module, the student will be able to:
 
-1. **Characterize eigenvalues and eigenvectors** using spectral theory and canonical forms.
-2. **Decompose matrices** via spectral decomposition, Singular Value Decomposition (SVD), and other factorizations.
-3. **Apply variational characterizations** (Courant-Fischer, Weyl) to bound and estimate eigenvalues.
-4. **Analyze matrix norms** and their relationships to spectral properties.
-5. **Use perturbation theory** to study the sensitivity of eigenvalues and singular values.
+1. **Characterize eigenvalues and eigenvectors** using spectral theory and the characteristic polynomial.
+2. **Decompose matrices** via the Spectral Theorem, Singular Value Decomposition (SVD), and related factorizations.
+3. **Apply variational characterizations** — Courant-Fischer and Weyl's inequalities — to bound and estimate eigenvalues.
+4. **Analyze matrix norms** and their relationships to singular values and spectral properties.
+5. **Use perturbation theory** to study the sensitivity of eigenvalues and singular values to small changes in the matrix.
 
 ---
 
@@ -28,15 +28,14 @@ Upon completing this module, the student will be able to:
 
 ### Unit 1: Eigenvalues and the Spectral Theorem
 
-#### 1.1 Eigenvalues, Eigenvectors, and Characteristic Polynomial
+#### 1.1 Eigenvalues, Eigenvectors, and the Characteristic Polynomial
 
-Let $A \in \mathbb{C}^{n \times n}$. A scalar $\lambda \in \mathbb{C}$ is an **eigenvalue** of $A$ if there exists a nonzero $x$ such that $Ax = \lambda x$. The eigenvalues are the roots of the **characteristic polynomial**:
+Let $A \in \mathbb{C}^{n \times n}$. A scalar $\lambda \in \mathbb{C}$ is an **eigenvalue** of $A$ if there exists a nonzero vector $x$ such that $Ax = \lambda x$. The eigenvalues are the roots of the **characteristic polynomial**:
 
-$$p(\lambda) = \det(A - \lambda I)$$
+$$p(\lambda) = \det(A - \lambda I).$$
 
-**Algebraic multiplicity**: the multiplicity of $\lambda$ as a root of $p(\lambda)$.
-
-**Geometric multiplicity**: $\dim \ker(A - \lambda I)$. Always satisfies: geometric $\leq$ algebraic multiplicity.
+- **Algebraic multiplicity**: the multiplicity of $\lambda$ as a root of $p(\lambda)$.
+- **Geometric multiplicity**: $\dim \ker(A - \lambda I)$. One always has: geometric $\leq$ algebraic multiplicity.
 
 #### 1.2 The Spectral Theorem for Hermitian Matrices
 
@@ -44,14 +43,14 @@ $$p(\lambda) = \det(A - \lambda I)$$
 
 1. All eigenvalues of $A$ are real.
 2. Eigenvectors corresponding to distinct eigenvalues are orthogonal.
-3. $A$ has an orthonormal basis of eigenvectors. That is, there exists a unitary matrix $U$ and a real diagonal matrix $\Lambda$ such that:
+3. $A$ has an orthonormal basis of eigenvectors; i.e., there exists a unitary $U$ and real diagonal $\Lambda$ such that:
 
-$$A = U \Lambda U^*$$
+$$A = U \Lambda U^*.$$
 
 *Proof Sketch*:
-- **Real eigenvalues**: If $Ax = \lambda x$ with $x \neq 0$, then $\lambda \|x\|^2 = x^*Ax = (x^*Ax)^* = \bar{\lambda}\|x\|^2$, so $\lambda = \bar{\lambda}$.
+- **Real eigenvalues**: If $Ax = \lambda x$ with $x \neq 0$, then $\lambda \|x\|^2 = x^*Ax = \overline{x^*Ax} = \bar{\lambda}\|x\|^2$, so $\lambda = \bar{\lambda}$.
 - **Orthogonality**: If $Ax = \lambda x$ and $Ay = \mu y$ with $\lambda \neq \mu$, then $\lambda \langle x, y \rangle = \langle Ax, y \rangle = \langle x, Ay \rangle = \mu \langle x, y \rangle$, so $\langle x, y \rangle = 0$.
-- **Full diagonalization**: Proceed by induction on $n$, using the fact that the orthogonal complement of an eigenspace is $A$-invariant.
+- **Full diagonalization**: By induction on $n$, using the $A$-invariance of the orthogonal complement of each eigenspace.
 
 #### 1.3 Normal Matrices
 
@@ -67,47 +66,47 @@ $$A = U \Lambda U^*$$
 
 #### 2.1 Statement of the SVD
 
-**Theorem**: For any $A \in \mathbb{C}^{m \times n}$, there exist unitary matrices $U \in \mathbb{C}^{m \times m}$, $V \in \mathbb{C}^{n \times n}$, and a diagonal matrix $\Sigma \in \mathbb{R}^{m \times n}$ with nonnegative entries $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_{\min(m,n)} \geq 0$ such that:
+**Theorem**: For any $A \in \mathbb{C}^{m \times n}$, there exist unitary matrices $U \in \mathbb{C}^{m \times m}$ and $V \in \mathbb{C}^{n \times n}$, and a rectangular diagonal matrix $\Sigma \in \mathbb{R}^{m \times n}$ with nonnegative diagonal entries $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_{\min(m,n)} \geq 0$ such that:
 
-$$A = U \Sigma V^*$$
+$$A = U \Sigma V^*.$$
 
-The $\sigma_i$ are the **singular values** of $A$. They are the square roots of the eigenvalues of $A^*A$ (or equivalently $AA^*$).
+The values $\sigma_i$ are the **singular values** of $A$, equal to the square roots of the eigenvalues of $A^*A$ (equivalently, of $AA^*$).
 
 #### 2.2 Geometric Interpretation
 
-The SVD reveals that any linear map $A: \mathbb{C}^n \to \mathbb{C}^m$ can be decomposed into three steps:
-1. **Rotation/reflection** by $V^*$ in the domain.
-2. **Scaling** by the singular values along coordinate axes.
-3. **Rotation/reflection** by $U$ in the codomain.
+The SVD reveals that any linear map $A: \mathbb{C}^n \to \mathbb{C}^m$ decomposes into three steps:
+1. **Rotation/reflection** in the domain by $V^*$.
+2. **Scaling** along coordinate axes by the singular values.
+3. **Rotation/reflection** in the codomain by $U$.
 
 #### 2.3 Fundamental Subspaces
 
-From $A = U\Sigma V^*$ with $r = \text{rank}(A)$:
+From $A = U\Sigma V^*$ with $r = \operatorname{rank}(A)$:
 
 | Subspace | Description | Basis |
 |----------|-------------|-------|
-| $\text{Col}(A)$ | Column space | First $r$ columns of $U$ |
-| $\text{Null}(A^*)$ | Left null space | Last $m - r$ columns of $U$ |
-| $\text{Row}(A)$ | Row space | First $r$ columns of $V$ |
-| $\text{Null}(A)$ | Null space | Last $n - r$ columns of $V$ |
+| $\operatorname{Col}(A)$ | Column space | First $r$ columns of $U$ |
+| $\operatorname{Null}(A^*)$ | Left null space | Last $m - r$ columns of $U$ |
+| $\operatorname{Row}(A)$ | Row space | First $r$ columns of $V$ |
+| $\operatorname{Null}(A)$ | Null space | Last $n - r$ columns of $V$ |
 
-#### 2.4 Low-Rank Approximation
+#### 2.4 Low-Rank Approximation (Eckart-Young-Mirsky)
 
-**Theorem (Eckart-Young-Mirsky)**: The best rank-$k$ approximation to $A$ (in both the spectral norm and Frobenius norm) is:
+**Theorem**: The best rank-$k$ approximation to $A$ in both the spectral norm and Frobenius norm is:
 
-$$A_k = \sum_{i=1}^k \sigma_i u_i v_i^*$$
+$$A_k = \sum_{i=1}^k \sigma_i u_i v_i^*.$$
 
-The approximation error is $\|A - A_k\|_2 = \sigma_{k+1}$ and $\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \cdots + \sigma_r^2}$.
+The errors are $\|A - A_k\|_2 = \sigma_{k+1}$ and $\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \cdots + \sigma_r^2}$.
 
-This is the theoretical basis for **Principal Component Analysis (PCA)** in statistics.
+This result is the theoretical foundation of **Principal Component Analysis (PCA)**.
 
-#### 2.5 Pseudoinverse
+#### 2.5 The Moore-Penrose Pseudoinverse
 
 The **Moore-Penrose pseudoinverse** $A^+$ is defined via the SVD as:
 
-$$A^+ = V \Sigma^+ U^*$$
+$$A^+ = V \Sigma^+ U^*,$$
 
-where $\Sigma^+$ replaces each nonzero $\sigma_i$ with $\sigma_i^{-1}$. This gives the minimum-norm least squares solution: $x^+ = A^+ b$ minimizes $\|Ax - b\|_2$ and among all minimizers, has the smallest $\|x\|_2$.
+where $\Sigma^+$ replaces each nonzero $\sigma_i$ with $\sigma_i^{-1}$. The vector $x^+ = A^+ b$ is the minimum-norm least-squares solution: it minimizes $\|Ax - b\|_2$, and among all minimizers has the smallest $\|x\|_2$.
 
 ---
 
@@ -115,70 +114,68 @@ where $\Sigma^+$ replaces each nonzero $\sigma_i$ with $\sigma_i^{-1}$. This giv
 
 #### 3.1 The Rayleigh Quotient
 
-For a Hermitian matrix $A$ and nonzero vector $x$:
+For a Hermitian matrix $A$ and nonzero vector $x$, the **Rayleigh quotient** is:
 
-$$R(x) = \frac{x^* A x}{x^* x}$$
+$$R(x) = \frac{x^* A x}{x^* x}.$$
 
-**Key property**: If $\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$ are the eigenvalues of $A$, then $\lambda_1 \leq R(x) \leq \lambda_n$ for all nonzero $x$.
+If $\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$ are the eigenvalues of $A$, then $\lambda_1 \leq R(x) \leq \lambda_n$ for all nonzero $x$, with equality achieved at the corresponding eigenvectors.
 
-#### 3.2 Courant-Fischer Theorem
+#### 3.2 The Courant-Fischer Min-Max Theorem
 
-**Theorem (Min-Max)**: Let $A$ be Hermitian with eigenvalues $\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$. Then:
+**Theorem**: Let $A$ be Hermitian with eigenvalues $\lambda_1 \leq \cdots \leq \lambda_n$. Then:
 
-$$\lambda_k = \min_{\dim S = k} \max_{x \in S, x \neq 0} \frac{x^* A x}{x^* x} = \max_{\dim S = n-k+1} \min_{x \in S, x \neq 0} \frac{x^* A x}{x^* x}$$
+$$\lambda_k = \min_{\dim S = k} \max_{x \in S,\, x \neq 0} \frac{x^* A x}{x^* x} = \max_{\dim S = n-k+1} \min_{x \in S,\, x \neq 0} \frac{x^* A x}{x^* x},$$
 
-where $S$ ranges over subspaces of $\mathbb{C}^n$.
+where $S$ ranges over all subspaces of $\mathbb{C}^n$.
 
-*Proof Sketch*: Express $x$ in the eigenbasis. For a $k$-dimensional subspace $S$, the maximum Rayleigh quotient is at least $\lambda_k$ because any $k$-dimensional subspace must intersect $\text{span}\{v_k, \ldots, v_n\}$ nontrivially (dimension counting). The eigenspace $\text{span}\{v_1, \ldots, v_k\}$ achieves the minimum over such maxima.
+*Proof Sketch*: Express $x$ in the eigenbasis. Any $k$-dimensional subspace $S$ must intersect $\operatorname{span}\{v_k, \ldots, v_n\}$ nontrivially by dimension counting, so the maximum Rayleigh quotient over $S$ is at least $\lambda_k$. The eigenspace $\operatorname{span}\{v_1, \ldots, v_k\}$ achieves the minimum over all such subspaces.
 
-#### 3.3 Weyl's Inequalities
+#### 3.3 Weyl's Perturbation Inequalities
 
 **Theorem (Weyl)**: Let $A, B$ be Hermitian $n \times n$ matrices with eigenvalues $\alpha_1 \leq \cdots \leq \alpha_n$ and $\beta_1 \leq \cdots \leq \beta_n$. If $C = A + B$ has eigenvalues $\gamma_1 \leq \cdots \leq \gamma_n$, then:
 
-$$\alpha_i + \beta_1 \leq \gamma_i \leq \alpha_i + \beta_n$$
+$$\alpha_i + \beta_1 \leq \gamma_i \leq \alpha_i + \beta_n.$$
 
-More generally: $\gamma_{i+j-1} \leq \alpha_i + \beta_j$ when $i + j - 1 \leq n$ and $\gamma_{i+j-n} \geq \alpha_i + \beta_j$ when $i + j \geq n + 1$.
+**Application**: If $B$ is a small perturbation, then $|\gamma_i - \alpha_i| \leq \|B\|_2$ for all $i$ — eigenvalues are Lipschitz continuous functions of the matrix entries.
 
-**Application**: If $B$ is a small perturbation, Weyl's inequality bounds the change in eigenvalues: $|\gamma_i - \alpha_i| \leq \|B\|_2$.
+#### 3.4 Cauchy Interlacing Theorem
 
-#### 3.4 Interlacing Theorems
+**Theorem**: Let $A$ be $n \times n$ Hermitian and $B$ a principal $(n-1) \times (n-1)$ submatrix (deleting one row and the corresponding column). If $\lambda_1 \leq \cdots \leq \lambda_n$ and $\mu_1 \leq \cdots \leq \mu_{n-1}$ are their respective eigenvalues, then:
 
-**Cauchy Interlacing Theorem**: Let $A$ be an $n \times n$ Hermitian matrix and $B$ be a principal $(n-1) \times (n-1)$ submatrix (obtained by deleting one row and the corresponding column). If $\lambda_1 \leq \cdots \leq \lambda_n$ are eigenvalues of $A$ and $\mu_1 \leq \cdots \leq \mu_{n-1}$ are eigenvalues of $B$, then:
-
-$$\lambda_1 \leq \mu_1 \leq \lambda_2 \leq \mu_2 \leq \cdots \leq \mu_{n-1} \leq \lambda_n$$
+$$\lambda_1 \leq \mu_1 \leq \lambda_2 \leq \mu_2 \leq \cdots \leq \mu_{n-1} \leq \lambda_n.$$
 
 ---
 
 ### Unit 4: Matrix Norms and Perturbation Theory
 
-#### 4.1 Matrix Norms
+#### 4.1 Induced and Frobenius Norms
 
-**Induced (operator) norms**: For a matrix $A \in \mathbb{C}^{m \times n}$:
+**Induced (operator) norms**: For $A \in \mathbb{C}^{m \times n}$:
 
-$$\|A\|_p = \sup_{x \neq 0} \frac{\|Ax\|_p}{\|x\|_p}$$
+$$\|A\|_p = \sup_{x \neq 0} \frac{\|Ax\|_p}{\|x\|_p}.$$
 
 Key cases:
-- $\|A\|_2 = \sigma_1(A)$ (largest singular value)
-- $\|A\|_1 = \max_j \sum_i |a_{ij}|$ (maximum column sum)
-- $\|A\|_\infty = \max_i \sum_j |a_{ij}|$ (maximum row sum)
+- $\|A\|_2 = \sigma_1(A)$ — largest singular value (spectral norm).
+- $\|A\|_1 = \max_j \sum_i |a_{ij}|$ — maximum column sum.
+- $\|A\|_\infty = \max_i \sum_j |a_{ij}|$ — maximum row sum.
 
-**Frobenius norm**: $\|A\|_F = \sqrt{\sum_{i,j} |a_{ij}|^2} = \sqrt{\text{tr}(A^*A)} = \sqrt{\sigma_1^2 + \cdots + \sigma_r^2}$
+**Frobenius norm**: $\|A\|_F = \sqrt{\sum_{i,j} |a_{ij}|^2} = \sqrt{\operatorname{tr}(A^*A)} = \sqrt{\sigma_1^2 + \cdots + \sigma_r^2}$.
 
 #### 4.2 Condition Number
 
-The **condition number** of an invertible matrix $A$: $\kappa(A) = \|A\| \cdot \|A^{-1}\| = \frac{\sigma_1}{\sigma_n}$ (for the 2-norm).
+The **condition number** of an invertible matrix $A$: $\kappa(A) = \|A\|_2 \cdot \|A^{-1}\|_2 = \sigma_1 / \sigma_n$.
 
-**Significance**: When solving $Ax = b$, the relative error satisfies:
+**Significance**: When solving $Ax = b$, the relative perturbation in the solution satisfies:
 
-$$\frac{\|\delta x\|}{\|x\|} \leq \kappa(A) \frac{\|\delta b\|}{\|b\|}$$
+$$\frac{\|\delta x\|}{\|x\|} \leq \kappa(A) \frac{\|\delta b\|}{\|b\|}.$$
 
-A large condition number indicates an ill-conditioned system.
+A large condition number signals an ill-conditioned system sensitive to numerical errors or data perturbations.
 
-#### 4.3 Perturbation of Singular Values
+#### 4.3 Weyl's Perturbation Theorem for Singular Values
 
-**Weyl's Perturbation Theorem for Singular Values**: For $A, E \in \mathbb{C}^{m \times n}$:
+**Theorem**: For $A, E \in \mathbb{C}^{m \times n}$:
 
-$$|\sigma_i(A + E) - \sigma_i(A)| \leq \|E\|_2$$
+$$|\sigma_i(A + E) - \sigma_i(A)| \leq \|E\|_2.$$
 
 ---
 
@@ -186,10 +183,10 @@ $$|\sigma_i(A + E) - \sigma_i(A)| \leq \|E\|_2$$
 
 | Text | Author(s) | Role |
 |------|-----------|------|
-| *Matrix Analysis* (2nd ed.) | Roger A. Horn & Charles R. Johnson | **Primary** — Comprehensive reference for all topics |
-| *Topics in Matrix Analysis* | Roger A. Horn & Charles R. Johnson | **Supplementary** — Advanced topics, norm theory |
-| *Matrix Analysis and Applied Linear Algebra* | Carl D. Meyer | **Alternative** — Applications-focused |
-| *Matrix Computations* (4th ed.) | Gene H. Golub & Charles F. Van Loan | **Computational** — Algorithms for SVD, eigenvalue problems |
+| *Matrix Analysis* (2nd ed.) | Roger A. Horn &amp; Charles R. Johnson | **Primary** — The comprehensive reference for all topics in this course |
+| *Topics in Matrix Analysis* | Roger A. Horn &amp; Charles R. Johnson | **Supplementary** — Advanced topics including norm theory and inertia |
+| *Matrix Analysis and Applied Linear Algebra* | Carl D. Meyer | **Alternative** — Applications-focused with detailed examples |
+| *Matrix Computations* (4th ed.) | Gene H. Golub &amp; Charles F. Van Loan | **Computational** — Algorithms for SVD, eigenvalue, and linear system problems |
 
 ---
 
@@ -197,35 +194,44 @@ $$|\sigma_i(A + E) - \sigma_i(A)| \leq \|E\|_2$$
 
 ### Problem Set 1: Spectral Theory
 
-1. **(Horn & Johnson, 1.3.P4)** Prove that every Hermitian matrix is unitarily diagonalizable.
+1. **(Horn &amp; Johnson, 1.3.P4)** Prove that every Hermitian matrix is unitarily diagonalizable.
 2. **(Exam-style)** Let $A$ be a real symmetric matrix. Show that $\|A\|_2 = \max_i |\lambda_i(A)|$.
 3. **(Exam-style)** Prove that if $A$ and $B$ are Hermitian and $AB = BA$, then $A$ and $B$ are simultaneously diagonalizable.
-4. **(Proof)** Show that $A$ is normal if and only if $\|Ax\| = \|A^*x\|$ for all $x$.
-5. **(Challenge)** Prove that every matrix is the product of two Hermitian matrices.
+4. **(Proof)** Show that $A$ is normal if and only if $\|Ax\| = \|A^*x\|$ for all $x \in \mathbb{C}^n$.
+5. **(Challenge)** Prove that every matrix is expressible as a product of two Hermitian matrices.
 
 ### Problem Set 2: Singular Value Decomposition
 
-1. **(Horn & Johnson, 7.3.P1)** Compute the SVD of $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \\ 1 & 0 \end{pmatrix}$.
-2. **(Exam-style)** Prove that $\text{rank}(A) = $ number of nonzero singular values of $A$.
-3. **(Exam-style)** Show that for any $A$: $\|A\|_F^2 = \sum \sigma_i^2$ and $\|A\|_2 = \sigma_1$.
-4. **(Application)** Given a data matrix $X \in \mathbb{R}^{n \times p}$, explain how the SVD of $X$ relates to Principal Component Analysis. What are the principal components and principal directions in terms of $U$, $\Sigma$, $V$?
+1. **(Horn &amp; Johnson, 7.3.P1)** Compute the SVD of $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \\ 1 & 0 \end{pmatrix}$.
+2. **(Exam-style)** Prove that $\operatorname{rank}(A)$ equals the number of nonzero singular values of $A$.
+3. **(Exam-style)** Show that $\|A\|_F^2 = \sum_i \sigma_i^2$ and $\|A\|_2 = \sigma_1$.
+4. **(Application)** Given a data matrix $X \in \mathbb{R}^{n \times p}$, explain how the SVD of $X$ relates to Principal Component Analysis. Identify the principal components and principal directions in terms of $U$, $\Sigma$, and $V$.
 5. **(Proof)** Prove the Eckart-Young-Mirsky theorem for the Frobenius norm.
 
 ### Problem Set 3: Variational Characterizations
 
-1. **(Horn & Johnson, 4.2.P1)** Use the Courant-Fischer theorem to prove Weyl's inequality.
-2. **(Exam-style)** Let $A$ be $n \times n$ positive semidefinite. Prove that $\lambda_{\max}(A) = \max_{\|x\|=1} x^T A x$.
-3. **(Exam-style)** Prove the Cauchy interlacing theorem using the Courant-Fischer theorem.
-4. **(Application)** Let $A = \begin{pmatrix} 4 & 1 \\ 1 & 3 \end{pmatrix}$ and $B = \begin{pmatrix} 0.01 & 0 \\ 0 & -0.02 \end{pmatrix}$. Use Weyl's inequality to bound the eigenvalues of $A + B$.
+1. **(Horn &amp; Johnson, 4.2.P1)** Use the Courant-Fischer theorem to prove Weyl's inequality.
+2. **(Exam-style)** Let $A$ be $n \times n$ positive semidefinite. Prove $\lambda_{\max}(A) = \max_{\|x\|=1} x^T A x$.
+3. **(Exam-style)** Prove the Cauchy Interlacing Theorem using the Courant-Fischer min-max characterization.
+4. **(Application)** Let $A = \begin{pmatrix} 4 & 1 \\ 1 & 3 \end{pmatrix}$ and $B = \begin{pmatrix} 0.01 & 0 \\ 0 & -0.02 \end{pmatrix}$. Apply Weyl's inequalities to bound the eigenvalues of $A + B$.
 5. **(Challenge)** Prove that if $A$ is positive definite and $B$ is Hermitian, then the eigenvalues of $AB$ are real.
 
 ---
 
-## Study Guide & Exam Preparation
+## Study Guide &amp; Exam Preparation
 
-**For the Introductory Exam (Linear Algebra portion)**:
-- Be able to state and prove the Spectral Theorem for Hermitian matrices.
-- Know the SVD statement and its implications (rank, pseudoinverse, low-rank approximation).
-- Master Courant-Fischer: be able to use it to derive eigenvalue bounds and prove interlacing.
-- Understand the connection between eigenvalues of $A^*A$ and singular values of $A$.
-- Practice computational problems: diagonalize small matrices, compute SVDs by hand.
+> [!IMPORTANT]
+> **Key Theorems for the Introductory Exam (Linear Algebra Portion)**
+>
+> The following results must be mastered at the full-proof level:
+> - **Spectral Theorem** — every Hermitian matrix is unitarily diagonalizable; real eigenvalues, orthogonal eigenvectors
+> - **SVD** — existence, fundamental subspace interpretation, and the Eckart-Young low-rank approximation
+> - **Courant-Fischer** — min-max characterization; use it to prove interlacing and Weyl's inequalities
+> - **Cauchy Interlacing** — deletion of one row/column interlaces eigenvalues
+> - **Perturbation bounds** — $|\sigma_i(A+E) - \sigma_i(A)| \leq \|E\|_2$
+
+**Exam Preparation Tips**:
+- Be able to state and prove the Spectral Theorem from scratch within 20 minutes.
+- Practice computing SVDs of small ($2 \times 3$) matrices by hand.
+- Know the relationship between eigenvalues of $A^*A$ and singular values of $A$.
+- For Courant-Fischer problems: always use dimension counting to show that the relevant subspaces intersect nontrivially.

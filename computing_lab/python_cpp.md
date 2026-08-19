@@ -8,7 +8,7 @@ permalink: /computing_lab/python_cpp/
 
 # Python & C++ Numerical Algorithms
 
-> *High-performance implementations of core mathematical algorithms. Each section pairs the theory from course modules with working code.*
+> *High-performance implementations of the core mathematical algorithms developed in Modules A–D. Each section presents both the theoretical context and a complete, runnable implementation in Python or C++, allowing direct verification of theoretical results.*
 
 ---
 
