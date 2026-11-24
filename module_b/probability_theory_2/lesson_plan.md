@@ -34,7 +34,7 @@ Upon completing this module, the student will be able to:
 
 $$\int_G E[X|\mathcal{G}] \, dP = \int_G X \, dP \quad \text{for all } G \in \mathcal{G}.$$
 
-*Proof*: The set function $\nu(G) = \int_G X \, dP$ is a signed measure that is absolutely continuous with respect to $P|_\mathcal{G}$. By the Radon-Nikodym theorem, $E[X|\mathcal{G}] = d\nu / dP|_\mathcal{G}$.
+*Proof*: The set function $\nu(G) = \int_G X \, dP$ is a signed measure that is absolutely continuous with respect to $P|_\mathcal{G}$. By the Radon-Nikodym theorem (stated in Unit 2; apply it to $X^+$ and $X^-$ separately if you only have the version for nonnegative measures), $E[X|\mathcal{G}] = d\nu / dP|_\mathcal{G}$. Alternatively, for $X \in L^2$, define $E[X|\mathcal{G}]$ as the orthogonal projection of §1.3 and extend to $L^1$ by approximation — this route avoids Radon-Nikodym entirely.
 
 #### 1.2 Properties of Conditional Expectation
 
@@ -62,7 +62,7 @@ This geometric interpretation is fundamental: conditional expectation is the bes
 
 **Definition**: A measure $\nu$ is **absolutely continuous** with respect to $\mu$ (written $\nu \ll \mu$) if $\mu(A) = 0 \Rightarrow \nu(A) = 0$.
 
-**Lebesgue Decomposition Theorem**: Any $\sigma$-finite measure $\nu$ decomposes uniquely as $\nu = \nu_{ac} + \nu_s$, where $\nu_{ac} \ll \mu$ and $\nu_s \perp \mu$ (mutually singular).
+**Lebesgue Decomposition Theorem**: If $\mu$ and $\nu$ are both $\sigma$-finite, then $\nu$ decomposes uniquely as $\nu = \nu_{ac} + \nu_s$, where $\nu_{ac} \ll \mu$ and $\nu_s \perp \mu$ (mutually singular).
 
 #### 2.2 The Radon-Nikodym Theorem
 
@@ -104,7 +104,7 @@ $$E[U_n(a, b)] \leq \frac{E[(M_n - a)^+]}{b - a}.$$
 
 *Proof*: If $M_n$ fails to converge, it must oscillate, producing infinitely many upcrossings of some rational interval $[a, b]$. The upcrossing inequality gives $E[U_\infty(a,b)] < \infty$, so $U_\infty(a,b) < \infty$ a.s. — a contradiction.
 
-> [!NOTE]
+{: .note }
 > Almost-sure convergence does **not** imply $L^1$ convergence. The additional condition needed is **uniform integrability**.
 
 #### 3.3 Uniform Integrability and $L^1$ Convergence
@@ -149,7 +149,7 @@ A stochastic process $(B_t)_{t \geq 0}$ is a **standard Brownian motion** (Wiene
 - **Quadratic variation**: $[B]_t = t$ (the "clock" of Brownian motion; fundamental to stochastic calculus).
 - **Self-similarity**: $\{c^{-1/2}B_{ct}\}_{t \geq 0} \overset{d}{=} \{B_t\}_{t \geq 0}$ for any $c > 0$.
 - **Nowhere differentiable**: $B_t$ is a.s. continuous on $[0,\infty)$ but nowhere differentiable.
-- **Recurrence**: In $\mathbb{R}^1$ and $\mathbb{R}^2$, Brownian motion is recurrent; in $\mathbb{R}^d$ for $d \geq 3$, it is transient.
+- **Recurrence**: In $\mathbb{R}^1$, Brownian motion is point-recurrent (it returns to every point). In $\mathbb{R}^2$ it is only neighborhood-recurrent: it returns to every open disk infinitely often, but a.s. never hits a fixed point other than its start. In $\mathbb{R}^d$ for $d \geq 3$, it is transient.
 
 #### 4.3 Donsker's Invariance Principle (Functional CLT)
 
@@ -165,7 +165,7 @@ Then $W_n \xrightarrow{d} B$ in $(C[0,1], \|\cdot\|_\infty)$. This is the **Func
 
 | Text | Author(s) | Role |
 |------|-----------|------|
-| *Probability: Theory and Examples* (5th ed.) | Rick Durrett | **Primary** — Chapters 4–8 |
+| *Probability: Theory and Examples* (5th ed.) | Rick Durrett | **Primary** — Chapter 4 (conditional expectation, martingales) and Chapter 7 (Brownian motion); 5th-edition numbering |
 | *Probability with Martingales* | David Williams | **Supplementary** — Elegant, concise martingale-focused treatment |
 | *Brownian Motion and Stochastic Calculus* | Ioannis Karatzas &amp; Steven Shreve | **Advanced** — The definitive reference for further study |
 | *Continuous Martingales and Brownian Motion* | Daniel Revuz &amp; Marc Yor | **Reference** — Encyclopedic treatment of Brownian motion |
@@ -176,7 +176,7 @@ Then $W_n \xrightarrow{d} B$ in $(C[0,1], \|\cdot\|_\infty)$. This is the **Func
 
 ### Problem Set 1: Conditional Expectation &amp; Radon-Nikodym
 
-1. **(Durrett 4.1)** Prove the tower property of conditional expectation.
+1. **(cf. Durrett §4.1)** Prove the tower property of conditional expectation.
 2. **(Exam-style)** Let $X \sim N(\mu, \sigma^2)$ and $Y = X + Z$ where $Z \sim N(0, \tau^2)$ is independent of $X$. Compute $E[X|Y]$ and $\operatorname{Var}(X|Y)$.
 3. **(Exam-style)** Let $P$ and $Q$ be probability measures with $\frac{dQ}{dP} = L$. Show $E_Q[X] = E_P[XL]$ and compute the Radon-Nikodym derivative for two Gaussian measures with different means.
 4. **(Proof)** Prove that conditional expectation is a contraction in $L^2$: $E[(E[X|\mathcal{G}])^2] \leq E[X^2]$.
@@ -184,7 +184,7 @@ Then $W_n \xrightarrow{d} B$ in $(C[0,1], \|\cdot\|_\infty)$. This is the **Func
 
 ### Problem Set 2: Martingales
 
-1. **(Durrett 5.2)** Prove: if $(M_n)$ is a martingale with $M_0 = 0$ and $\sup_n E[M_n^2] < \infty$, then $M_n$ converges a.s. and in $L^2$.
+1. **(cf. Durrett §4.4)** Prove: if $(M_n)$ is a martingale with $M_0 = 0$ and $\sup_n E[M_n^2] < \infty$, then $M_n$ converges a.s. and in $L^2$.
 2. **(Exam-style)** Let $S_n = X_1 + \cdots + X_n$ with $P(X_i = 1) = P(X_i = -1) = 1/2$. Show $S_n^2 - n$ is a martingale.
 3. **(Exam-style)** State and prove Doob's upcrossing inequality.
 4. **(Application — Gambler's Ruin)** A gambler begins with $\$k$ and at each step wins $\$1$ with probability $p$ or loses $\$1$ with probability $q = 1-p$. Use optional stopping to find the probability of reaching $\$N$ before ruin.
@@ -192,7 +192,7 @@ Then $W_n \xrightarrow{d} B$ in $(C[0,1], \|\cdot\|_\infty)$. This is the **Func
 
 ### Problem Set 3: Brownian Motion
 
-1. **(Durrett 8.1)** Verify that the covariance function of standard Brownian motion is $\operatorname{Cov}(B_s, B_t) = \min(s, t)$.
+1. **(cf. Durrett §7.1)** Verify that the covariance function of standard Brownian motion is $\operatorname{Cov}(B_s, B_t) = \min(s, t)$.
 2. **(Exam-style)** Show that $B_t^2 - t$ is a martingale with respect to the natural filtration of $(B_t)$.
 3. **(Proof)** Prove that $e^{\theta B_t - \theta^2 t / 2}$ is a martingale for every $\theta \in \mathbb{R}$ (the Doléans-Dade exponential).
 4. **(Application)** Use the reflection principle to compute $P\!\left(\max_{0 \leq s \leq t} B_s \geq a\right)$ for $a > 0$.
@@ -202,8 +202,8 @@ Then $W_n \xrightarrow{d} B$ in $(C[0,1], \|\cdot\|_\infty)$. This is the **Func
 
 ## Study Guide &amp; Exam Preparation
 
-> [!IMPORTANT]
-> **Key Theorems for the Qualifying Exam (Advanced Probability)**
+{: .important }
+> **Key Theorems for Advanced Probability (Probability Theory II)**
 >
 > - **Tower property** of conditional expectation — know the proof using the defining integral equation
 > - **Radon-Nikodym theorem** — statement, uniqueness, and the likelihood ratio application

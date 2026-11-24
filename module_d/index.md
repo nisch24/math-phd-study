@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Module D — Optimization & Operations Research"
-nav_order: 5
+nav_order: 7
 has_children: true
 permalink: /module_d/
 ---

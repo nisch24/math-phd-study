@@ -172,33 +172,36 @@ Moreover, $Dg(a) = -[D_y F(a,b)]^{-1} D_x F(a,b)$.
 
 ### Problem Set 1: Metric Space Topology
 
-1. **(Rudin Ch. 2, #6)** Prove that every compact subset of a metric space is closed and bounded.
-2. **(Rudin Ch. 2, #9)** Let $E$ be a connected subset of a metric space. Prove that $\overline{E}$ is connected.
-3. **(Rudin Ch. 2, #22)** Prove that $\mathbb{R}^n$ is separable (has a countable dense subset).
+1. **(cf. Rudin Thm. 2.34)** Prove that every compact subset of a metric space is closed and bounded.
+2. **(Core)** Let $E$ be a connected subset of a metric space. Prove that $\overline{E}$ is connected.
+3. **(Rudin Ch. 2, Ex. 22)** Prove that $\mathbb{R}^n$ is separable (has a countable dense subset).
 4. **(Exam-style)** Let $(X, d)$ be a compact metric space and $f: X \to X$ an isometry (distance-preserving map). Prove that $f$ is surjective.
 5. **(Exam-style)** Prove or disprove: if $f: (0,1) \to \mathbb{R}$ is uniformly continuous, then $f$ extends continuously to $[0,1]$.
 
 ### Problem Set 2: Sequences &amp; Series of Functions
 
-1. **(Rudin Ch. 7, #1)** Show that the sequence $f_n(x) = \frac{x}{1 + nx^2}$ converges uniformly on $\mathbb{R}$.
-2. **(Rudin Ch. 7, #6)** Prove that if $f_n \to f$ uniformly on $[a,b]$ and each $f_n$ is Riemann integrable, then $f$ is Riemann integrable and the integrals converge.
+1. **(Core)** Show that the sequence $f_n(x) = \frac{x}{1 + nx^2}$ converges uniformly on $\mathbb{R}$.
+2. **(cf. Rudin Thm. 7.16)** Prove that if $f_n \to f$ uniformly on $[a,b]$ and each $f_n$ is Riemann integrable, then $f$ is Riemann integrable and the integrals converge.
 3. **(Exam-style)** Let $f_n(x) = x^n$ on $[0,1]$. Show that $f_n \to f$ pointwise but not uniformly, where $f(x) = 0$ for $x \in [0,1)$ and $f(1) = 1$.
 4. **(Exam-style)** Use the Weierstrass M-test to show $\sum_{n=0}^\infty \frac{x^n}{n!}$ converges uniformly on $[-R, R]$ for every $R > 0$.
 5. **(Arzelà-Ascoli Application)** Let $f_n: [0,1] \to \mathbb{R}$ satisfy $|f_n(x)| \leq 1$ and $|f_n(x) - f_n(y)| \leq |x - y|$ for all $n, x, y$. Prove that $(f_n)$ has a uniformly convergent subsequence.
 
 ### Problem Set 3: Inverse and Implicit Function Theorems
 
-1. **(Rudin Ch. 9, #17)** State and prove the Inverse Function Theorem.
-2. **(Exam-style)** Let $F(x, y) = x^2 + y^2 - 1$. Use the Implicit Function Theorem to show that near $(1, 0)$, the unit circle can be written as $y = g(x)$ for a differentiable $g$. Compute $g'(1)$.
-3. **(Exam-style)** Let $f: \mathbb{R}^2 \to \mathbb{R}^2$ be defined by $f(x,y) = (e^x \cos y,\, e^x \sin y)$. Show that $f$ is locally invertible near every point and find $D(f^{-1})$ near $(1, 0)$.
+1. **(cf. Rudin Thm. 9.24)** State and prove the Inverse Function Theorem.
+2. **(Exam-style)** Let $F(x, y) = x^2 + y^2 - 1$.
+   (a) Show that the Implicit Function Theorem does **not** let you write the unit circle as $y = g(x)$ near $(1, 0)$ (compute $\partial F/\partial y$ there), and explain geometrically why no such $g$ exists.
+   (b) Show that near $(1, 0)$ the circle is instead a graph $x = h(y)$, and compute $h'(0)$.
+   (c) Near $(1/\sqrt{2}, 1/\sqrt{2})$, write the circle as $y = g(x)$ and compute $g'(1/\sqrt{2})$.
+3. **(cf. Rudin Ch. 9, Ex. 17)** Let $f: \mathbb{R}^2 \to \mathbb{R}^2$ be defined by $f(x,y) = (e^x \cos y,\, e^x \sin y)$. Show that $Df(x,y)$ is invertible at every point, so $f$ is locally invertible everywhere. For the local inverse $f^{-1}$ near $(1,0)$ with $f^{-1}(1,0) = (0,0)$, compute $D(f^{-1})(1, 0)$.
 4. **(Proof)** Use the Contraction Mapping Principle to prove that $x = \frac{1}{3}\cos(x)$ has a unique solution in $\mathbb{R}$.
-5. **(Challenge)** Prove that if $f: \mathbb{R}^n \to \mathbb{R}^n$ is $C^1$ and $Df(x)$ is invertible for all $x$, $f$ need not be globally injective. Construct a counterexample for $n = 2$.
+5. **(Challenge)** (a) Show that the map $f$ in Problem 3 is not globally injective, so an everywhere-invertible derivative does not yield a global inverse. (b) Prove that if $f: \mathbb{R}^n \to \mathbb{R}^n$ satisfies $\langle f(x) - f(y),\, x - y\rangle \geq c\|x - y\|^2$ for some $c > 0$ and all $x, y$, then $f$ is injective.
 
 ---
 
 ## Study Guide &amp; Exam Preparation
 
-> [!IMPORTANT]
+{: .important }
 > **Key Theorems for the Introductory Exam (Analysis Portion)**
 >
 > The following results appear most frequently on qualifying exams and must be mastered at the proof level:

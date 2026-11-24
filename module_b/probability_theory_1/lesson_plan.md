@@ -189,7 +189,7 @@ $$\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \xrightarrow{d} N(0, 1).$$
 
 ### Problem Set 1: Measure-Theoretic Foundations
 
-1. **(Durrett 1.1)** Show that $\mathcal{F}_1 \cap \mathcal{F}_2$ is a $\sigma$-algebra whenever $\mathcal{F}_1$ and $\mathcal{F}_2$ are, but $\mathcal{F}_1 \cup \mathcal{F}_2$ generally is not.
+1. **(cf. Durrett §1.1)** Show that $\mathcal{F}_1 \cap \mathcal{F}_2$ is a $\sigma$-algebra whenever $\mathcal{F}_1$ and $\mathcal{F}_2$ are, but $\mathcal{F}_1 \cup \mathcal{F}_2$ generally is not.
 2. **(Exam-style)** Prove Borel-Cantelli Lemma I: if $\sum P(A_n) < \infty$, then $P(\limsup A_n) = 0$.
 3. **(Exam-style)** Let $(X_n)$ be a sequence of random variables. Prove that the event $\{X_n \to X\}$ is measurable (i.e., $\{X_n \to X\} \in \mathcal{F}$).
 4. **(Proof)** Construct a probability measure on $((0,1], \mathcal{B}((0,1]))$ corresponding to the uniform distribution by defining it on intervals and extending via Carathéodory's Extension Theorem.
@@ -197,7 +197,7 @@ $$\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \xrightarrow{d} N(0, 1).$$
 
 ### Problem Set 2: Integration and Convergence Theorems
 
-1. **(Durrett 1.5)** Use the MCT to prove Fatou's Lemma.
+1. **(cf. Durrett §1.5)** Use the MCT to prove Fatou's Lemma.
 2. **(Exam-style)** Compute $\lim_{n \to \infty} \int_0^n \left(1 - \frac{x}{n}\right)^n e^{x/2} \, dx$ using the Dominated Convergence Theorem.
 3. **(Exam-style)** Prove: if $E[X^2] < \infty$, then $E[X]$ is finite. More generally, show $L^q \subseteq L^p$ for $q > p \geq 1$ on finite measure spaces.
 4. **(Proof)** Prove Jensen's inequality using the supporting hyperplane characterization of convex functions.
@@ -205,7 +205,7 @@ $$\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \xrightarrow{d} N(0, 1).$$
 
 ### Problem Set 3: Laws of Large Numbers and CLT
 
-1. **(Durrett 2.2)** Prove the WLLN using Chebyshev's inequality.
+1. **(cf. Durrett §2.2)** Prove the WLLN using Chebyshev's inequality.
 2. **(Exam-style)** Prove that a.s. convergence implies convergence in probability, but not conversely. Construct an explicit counterexample.
 3. **(Exam-style)** State and prove the Lindeberg-Lévy CLT using characteristic functions.
 4. **(Application)** Use the CLT to approximate $P(S_{100} > 520)$ where $S_{100} = X_1 + \cdots + X_{100}$ and $X_i$ are i.i.d. with $E[X] = 5$ and $\operatorname{Var}(X) = 4$.
@@ -215,11 +215,11 @@ $$\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \xrightarrow{d} N(0, 1).$$
 
 ## Study Guide &amp; Exam Preparation
 
-> [!IMPORTANT]
-> **Key Theorems for the Qualifying Exam (Probability Portion)**
+{: .important }
+> **Key Theorems for the Introductory Exam (Probability Paper)**
 >
 > The following results appear most frequently and must be mastered at the full-proof level:
-> - **Borel-Cantelli Lemmas** (both I and II) — the "almost infinitely often" criterion
+> - **Borel-Cantelli Lemmas** (both I and II) — the "infinitely often" (i.o.) criterion; BC II needs independence
 > - **Monotone Convergence Theorem** — nonnegative increasing functions; swap limit and integral
 > - **Dominated Convergence Theorem** — the workhorse for computing limits of integrals
 > - **WLLN** — Chebyshev + independence; the standard proof

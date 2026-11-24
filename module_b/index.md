@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Module B — Probability & Stochastic Processes"
-nav_order: 3
+nav_order: 5
 has_children: true
 permalink: /module_b/
 ---
@@ -39,15 +39,15 @@ permalink: /module_b/
 | Core object | Probability spaces, random variables | Filtrations, martingales, Brownian motion |
 | Key theorem | Strong Law of Large Numbers | Martingale Convergence Theorem |
 | Key tool | Characteristic functions (CLT proof) | Radon-Nikodym theorem |
-| Exam weight | Foundational for all subsequent modules | Essential for statistical theory and stochastic calculus |
-| Primary text | Durrett, *Probability: Theory and Examples* | Durrett (Ch. 4–8) + Williams |
+| Exam role | Prepares the Probability paper of the Introductory Exam | Essential for statistical theory and stochastic calculus |
+| Primary text | Durrett, *Probability: Theory and Examples* (Ch. 1–3) | Durrett (Ch. 4 and 7, 5th ed.) + Williams |
 
 ---
 
 ## Prerequisites
 
-- **Module A**: Real Analysis (measure theory builds directly on metric space topology and the Lebesgue integral)
-- Undergraduate probability at the level of Ross or Bertsekas &amp; Tsitsiklis
+- **Module A**: Real Analysis (measure theory builds directly on metric space topology; the Lebesgue integral itself is developed in Probability Theory I)
+- Calculus-based undergraduate probability at the level of Ross or Blitzstein &amp; Hwang. If yours was an applied or computational course, work through [Module 0 — Probability &amp; Mathematical Statistics]({{ site.baseurl }}/module_0/probability_statistics/) first.
 
 ## Connection to Other Modules
 

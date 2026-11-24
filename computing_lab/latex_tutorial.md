@@ -23,13 +23,14 @@ permalink: /computing_lab/latex_tutorial/
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{mathtools}
-\usepackage{enumerate}
-\usepackage{hyperref}
+\usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{algorithm2e}
+\usepackage[ruled,vlined]{algorithm2e}
 \usepackage[backend=biber, style=numeric-comp, sorting=nyt]{biblatex}
 \addbibresource{references.bib}
+\usepackage{hyperref}   % load (nearly) last: it patches other packages
+\usepackage{cleveref}   % must come after hyperref
 
 % Theorem environments
 \theoremstyle{plain}
@@ -100,7 +101,7 @@ The MLE satisfies $\hat{\theta}_n \xrightarrow{P} \theta_0$.
 % Aligned equations
 \begin{align}
   \mathcal{L}(x, \lambda) &= f(x) - \lambda^T c(x) \\
-  \nabla_x \mathcal{L} &= \nabla f(x) - \lambda^T \nabla c(x) = 0 \\
+  \nabla_x \mathcal{L} &= \nabla f(x) - J_c(x)^T \lambda = 0 \\  % J_c = Jacobian of c
   c(x) &= 0
 \end{align}
 
@@ -151,7 +152,9 @@ $I(\theta) = -\E\left[\frac{\partial^2}{\partial\theta^2}
 
 ---
 
-## 3. Bibliographies with BibTeX
+## 3. Bibliographies with BibLaTeX and Biber
+
+The template above uses `biblatex` with the `biber` backend. The `.bib` file format is the same one classic BibTeX uses.
 
 ### `references.bib`
 
@@ -261,7 +264,7 @@ The MLE theory follows \cite{casella2002, nocedal2006}.
 
 1. **Use `\newcommand`** for repeated notation — makes global changes trivial.
 2. **Label everything**: `\label{thm:clt}`, `\label{eq:kkt}`, `\label{fig:contour}`.
-3. **Cross-reference**: `Theorem~\ref{thm:clt}`, `Equation~\eqref{eq:kkt}`.
+3. **Cross-reference**: `Theorem~\ref{thm:clt}`, `Equation~\eqref{eq:kkt}`, or with `cleveref`, simply `\cref{thm:clt}`, which inserts "Theorem" automatically.
 4. **Use `\operatorname`** for multi-letter operators: `\operatorname{tr}`, `\operatorname{diag}`.
 5. **Compile cycle**: `pdflatex → biber → pdflatex → pdflatex`.
 

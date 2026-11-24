@@ -61,7 +61,7 @@ A **tree** is a connected acyclic graph. The following are equivalent for a grap
 
 **Theorem (Euler, 1736)**: A connected graph has an Eulerian circuit if and only if every vertex has even degree. It has an Eulerian path if and only if exactly 0 or 2 vertices have odd degree.
 
-*Proof (circuit, sufficiency)*: Construct a circuit greedily from any starting vertex. If edges remain after completing a circuit, the graph remains connected (since all vertices have even degree), and a sub-circuit starting at a vertex of the original circuit can be spliced in (Hierholzer's algorithm). Iterate until all edges are traversed.
+*Proof (circuit, sufficiency)*: Start at any vertex and walk along unused edges. Since every degree is even, the walk can only get stuck at its starting vertex, so it closes into a circuit $C$. If edges remain unused, connectedness guarantees that some unused edge is incident to a vertex $v$ of $C$. (The leftover graph may itself be disconnected, so connectedness of $G$ is what you use here.) Every vertex still has even degree in the unused edges, so a closed walk from $v$ in the unused edges can be spliced into $C$ at $v$ (Hierholzer's algorithm). Repeat until all edges are used.
 
 #### 2.2 Hamiltonian Circuits
 
@@ -98,7 +98,7 @@ $$v - e + f = 2.$$
 
 **Key Results**:
 - **Greedy bound**: $\chi(G) \leq \Delta(G) + 1$, where $\Delta$ is the maximum degree.
-- **Brooks' Theorem**: $\chi(G) \leq \Delta(G)$ unless $G$ is a complete graph or an odd cycle.
+- **Brooks' Theorem**: If $G$ is connected, then $\chi(G) \leq \Delta(G)$ unless $G$ is a complete graph or an odd cycle.
 - **Five Color Theorem**: Every planar graph satisfies $\chi(G) \leq 5$ (provable by elementary means using Euler's formula).
 - **Four Color Theorem**: Every planar graph satisfies $\chi(G) \leq 4$ (requires a computer-assisted proof; the Five Color Theorem is the proof-by-hand analog).
 
@@ -193,7 +193,7 @@ The **assignment problem** asks for a minimum-weight perfect matching in a compl
 
 ### Problem Set 1: Trees and Eulerian/Hamiltonian Graphs
 
-1. **(West 1.2.18)** Prove that a connected graph has an Eulerian circuit if and only if every vertex has even degree.
+1. **(cf. West §1.2)** Prove that a connected graph has an Eulerian circuit if and only if every vertex has even degree.
 2. **(Exam-style)** Verify Cayley's formula $n^{n-2}$ for $n = 4$ by listing all labeled trees on 4 vertices.
 3. **(Exam-style)** Check whether the Petersen graph satisfies the hypothesis of Dirac's theorem. Is the Petersen graph Hamiltonian?
 4. **(Proof)** Prove that every tree with $n \geq 2$ vertices has at least 2 leaves.
@@ -201,7 +201,7 @@ The **assignment problem** asks for a minimum-weight perfect matching in a compl
 
 ### Problem Set 2: Planarity and Coloring
 
-1. **(West 6.1)** Use Euler's formula and the edge-bound $e \leq 3v - 6$ to prove $K_5$ is nonplanar.
+1. **(cf. West §6.1)** Use Euler's formula and the edge-bound $e \leq 3v - 6$ to prove $K_5$ is nonplanar.
 2. **(Exam-style)** Prove the Five Color Theorem by induction using Euler's formula and a contraction argument.
 3. **(Exam-style)** Compute the chromatic polynomial $P(C_4, k)$ of the 4-cycle.
 4. **(Proof)** Prove Brooks' theorem for connected graphs that are neither complete graphs nor odd cycles.
@@ -209,7 +209,7 @@ The **assignment problem** asks for a minimum-weight perfect matching in a compl
 
 ### Problem Set 3: Network Flows and Matching
 
-1. **(West 4.3)** Apply Ford-Fulkerson to find the maximum flow in a specific network. Identify the minimum cut and verify Max-Flow = Min-Cut.
+1. **(cf. West §4.3)** Apply Ford-Fulkerson to find the maximum flow in a specific network. Identify the minimum cut and verify Max-Flow = Min-Cut.
 2. **(Exam-style)** Prove the Max-Flow Min-Cut theorem using the augmenting path characterization of a maximum flow.
 3. **(Exam-style)** Prove Hall's Theorem using the Max-Flow Min-Cut theorem.
 4. **(Application)** Model the assignment of 5 workers to 5 tasks (with cost matrix) as a bipartite matching problem. Solve using the Hungarian algorithm and interpret the dual variables.
@@ -219,12 +219,12 @@ The **assignment problem** asks for a minimum-weight perfect matching in a compl
 
 ## Study Guide &amp; Exam Preparation
 
-> [!IMPORTANT]
+{: .important }
 > **Key Theorems for Graph Theory**
 >
 > - **Euler's Circuit Theorem** — even degrees $\Leftrightarrow$ Eulerian circuit; proof via Hierholzer's algorithm
 > - **Euler's Formula** — $v - e + f = 2$ for connected planar graphs; leads to the edge-count bound $e \leq 3v-6$
-> - **Kuratowski's Theorem** — planarity characterized by forbidden minors $K_5$ and $K_{3,3}$
+> - **Kuratowski's Theorem** — planar iff no subdivision of $K_5$ or $K_{3,3}$ (Wagner: equivalently, no $K_5$ or $K_{3,3}$ minor)
 > - **Brooks' Theorem** — $\chi(G) \leq \Delta(G)$ except for complete graphs and odd cycles
 > - **Max-Flow Min-Cut Theorem** — maximum flow = minimum cut capacity; the central result of network theory
 > - **Hall's Marriage Theorem** — bipartite matching saturating $A$ $\Leftrightarrow$ Hall's condition $|N(S)| \geq |S|$

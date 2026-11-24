@@ -194,15 +194,15 @@ $$|\sigma_i(A + E) - \sigma_i(A)| \leq \|E\|_2.$$
 
 ### Problem Set 1: Spectral Theory
 
-1. **(Horn &amp; Johnson, 1.3.P4)** Prove that every Hermitian matrix is unitarily diagonalizable.
+1. **(cf. Horn &amp; Johnson §2.5)** Prove that every Hermitian matrix is unitarily diagonalizable.
 2. **(Exam-style)** Let $A$ be a real symmetric matrix. Show that $\|A\|_2 = \max_i |\lambda_i(A)|$.
 3. **(Exam-style)** Prove that if $A$ and $B$ are Hermitian and $AB = BA$, then $A$ and $B$ are simultaneously diagonalizable.
 4. **(Proof)** Show that $A$ is normal if and only if $\|Ax\| = \|A^*x\|$ for all $x \in \mathbb{C}^n$.
-5. **(Challenge)** Prove that every matrix is expressible as a product of two Hermitian matrices.
+5. **(Challenge)** Prove or disprove: every $A \in \mathbb{C}^{n \times n}$ is a product of two Hermitian matrices. Hint: if $A = HK$ with $H, K$ Hermitian and $H$ invertible, show $A$ is similar to $A^*$, then test $A = \operatorname{diag}(i, 1)$. (The full characterization, due to Taussky: $A$ is a product of two Hermitian matrices iff $A$ is similar to $A^*$. Contrast this with the true statement that every complex square matrix is a product of two complex *symmetric* matrices.)
 
 ### Problem Set 2: Singular Value Decomposition
 
-1. **(Horn &amp; Johnson, 7.3.P1)** Compute the SVD of $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \\ 1 & 0 \end{pmatrix}$.
+1. **(cf. Horn &amp; Johnson §2.6)** Compute the SVD of $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \\ 1 & 0 \end{pmatrix}$.
 2. **(Exam-style)** Prove that $\operatorname{rank}(A)$ equals the number of nonzero singular values of $A$.
 3. **(Exam-style)** Show that $\|A\|_F^2 = \sum_i \sigma_i^2$ and $\|A\|_2 = \sigma_1$.
 4. **(Application)** Given a data matrix $X \in \mathbb{R}^{n \times p}$, explain how the SVD of $X$ relates to Principal Component Analysis. Identify the principal components and principal directions in terms of $U$, $\Sigma$, and $V$.
@@ -210,7 +210,7 @@ $$|\sigma_i(A + E) - \sigma_i(A)| \leq \|E\|_2.$$
 
 ### Problem Set 3: Variational Characterizations
 
-1. **(Horn &amp; Johnson, 4.2.P1)** Use the Courant-Fischer theorem to prove Weyl's inequality.
+1. **(cf. Horn &amp; Johnson §4.3)** Use the Courant-Fischer theorem to prove Weyl's inequality.
 2. **(Exam-style)** Let $A$ be $n \times n$ positive semidefinite. Prove $\lambda_{\max}(A) = \max_{\|x\|=1} x^T A x$.
 3. **(Exam-style)** Prove the Cauchy Interlacing Theorem using the Courant-Fischer min-max characterization.
 4. **(Application)** Let $A = \begin{pmatrix} 4 & 1 \\ 1 & 3 \end{pmatrix}$ and $B = \begin{pmatrix} 0.01 & 0 \\ 0 & -0.02 \end{pmatrix}$. Apply Weyl's inequalities to bound the eigenvalues of $A + B$.
@@ -220,7 +220,7 @@ $$|\sigma_i(A + E) - \sigma_i(A)| \leq \|E\|_2.$$
 
 ## Study Guide &amp; Exam Preparation
 
-> [!IMPORTANT]
+{: .important }
 > **Key Theorems for the Introductory Exam (Linear Algebra Portion)**
 >
 > The following results must be mastered at the full-proof level:

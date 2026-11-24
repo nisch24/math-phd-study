@@ -52,13 +52,19 @@ The second factor depends only on the data (not on $\mu$), confirming sufficienc
 
 **Definition**: A sufficient statistic $T$ is **minimal sufficient** if it is a function of every other sufficient statistic — it achieves the maximum possible data reduction while retaining all information about $\theta$.
 
-**Theorem (Lehmann-Scheffé Criterion)**: $T(X)$ is minimal sufficient if $T(x) = T(y)$ whenever the likelihood ratio $f(x|\theta) / f(y|\theta)$ is constant as a function of $\theta$.
+**Theorem (Lehmann-Scheffé Criterion)**: Suppose that for every pair of sample points $x, y$,
+
+$$\frac{f(x|\theta)}{f(y|\theta)} \text{ is constant as a function of } \theta \quad\Longleftrightarrow\quad T(x) = T(y).$$
+
+Then $T(X)$ is minimal sufficient. Both directions matter: "$\Leftarrow$" gives sufficiency (via factorization), and "$\Rightarrow$" gives minimality.
 
 #### 1.3 Completeness
 
 **Definition**: A statistic $T$ is **complete** if $E_\theta[g(T)] = 0$ for all $\theta$ implies $g(T) = 0$ a.s. under all $\theta$.
 
-**Theorem (Bahadur)**: A complete sufficient statistic is minimal sufficient.
+**Theorem (Bahadur)**: If a minimal sufficient statistic exists, then any complete sufficient statistic is minimal sufficient. (The existence hypothesis holds in every standard model, e.g. whenever the family is dominated by a $\sigma$-finite measure on $\mathbb{R}^n$.)
+
+**Theorem (Basu)**: If $T$ is complete sufficient and $V$ is ancillary (its distribution does not depend on $\theta$), then $T$ and $V$ are independent. This is the cleanest proof that $\bar{X}$ and $S^2$ are independent for normal samples.
 
 ---
 
@@ -76,9 +82,9 @@ where $\boldsymbol{\eta} = (\eta_1, \ldots, \eta_k)$ are the **natural parameter
 
 1. **Sufficiency**: $(T_1(X), \ldots, T_k(X))$ is sufficient by the Factorization Theorem.
 2. **Moment generation from $A$**: $E[T_j] = \frac{\partial A}{\partial \eta_j}$ and $\operatorname{Cov}(T_i, T_j) = \frac{\partial^2 A}{\partial \eta_i \partial \eta_j}$.
-3. **Completeness**: If the natural parameter space contains an open set in $\mathbb{R}^k$, the family is complete.
+3. **Completeness**: If the natural parameter space contains an open set in $\mathbb{R}^k$ (a *full-rank* family), then $T = (T_1, \ldots, T_k)$ is a complete sufficient statistic. Curved families (e.g. $N(\theta, \theta^2)$) fail this condition, and their natural statistic is typically not complete.
 4. **Convexity**: $A(\boldsymbol{\eta})$ is convex, and the natural parameter space is convex.
-5. **MLE existence**: If the observed $T$ lies in the interior of the convex hull of the support of $T$, the MLE exists and satisfies the moment equations $E_{\hat{\theta}}[T] = T_{\text{obs}}$.
+5. **MLE existence**: For a full-rank family with open natural parameter space, if the observed average $\bar{T} = \frac{1}{n}\sum_i T(X_i)$ lies in the interior of the convex hull of the support of $T$, the MLE exists, is unique, and solves the moment equations $\nabla A(\hat{\boldsymbol{\eta}}) = E_{\hat{\boldsymbol{\eta}}}[T] = \bar{T}$.
 
 **Examples**: The Normal, Poisson, Binomial, Gamma, Beta, and Multinomial families are all exponential families. The Cauchy distribution is not.
 
@@ -169,7 +175,7 @@ $$\operatorname{Var}(\hat{\theta}) = \operatorname{Var}(\tilde{\theta}) + E[\ope
 
 ### Problem Set 1: Sufficiency and Exponential Families
 
-1. **(Casella &amp; Berger 6.2)** Find a sufficient statistic for $\theta$ when $X_1, \ldots, X_n \overset{\text{iid}}{\sim} \operatorname{Uniform}(0, \theta)$. Is it minimal sufficient?
+1. **(cf. Casella &amp; Berger §6.2)** Find a sufficient statistic for $\theta$ when $X_1, \ldots, X_n \overset{\text{iid}}{\sim} \operatorname{Uniform}(0, \theta)$. Is it minimal sufficient?
 2. **(Exam-style)** Show that the $\operatorname{Poisson}(\lambda)$ family is a one-parameter exponential family. Identify the natural parameter, natural sufficient statistic, and log-partition function.
 3. **(Exam-style)** Prove that a complete sufficient statistic is minimal sufficient.
 4. **(Proof)** Let $X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)$. Show that $(\bar{X}, S^2)$ is jointly sufficient for $(\mu, \sigma^2)$.
@@ -177,7 +183,7 @@ $$\operatorname{Var}(\hat{\theta}) = \operatorname{Var}(\tilde{\theta}) + E[\ope
 
 ### Problem Set 2: Fisher Information and Cramér-Rao
 
-1. **(Casella &amp; Berger 7.7)** Compute the Fisher Information $I(\theta)$ when $X \sim \operatorname{Binomial}(n, \theta)$.
+1. **(cf. Casella &amp; Berger §7.3)** Compute the Fisher Information $I(\theta)$ when $X \sim \operatorname{Binomial}(n, \theta)$.
 2. **(Exam-style)** Prove the Cramér-Rao lower bound using the Cauchy-Schwarz inequality.
 3. **(Exam-style)** Find the CRLB for unbiased estimators of $\lambda$ when $X_1, \ldots, X_n \overset{\text{iid}}{\sim} \operatorname{Poisson}(\lambda)$. Show that $\bar{X}$ achieves this bound.
 4. **(Proof)** Show that the two forms of Fisher Information are equal — $E[S^2]$ and $-E[\partial^2 \ell / \partial\theta^2]$ — under appropriate regularity conditions (interchange of derivative and integral).
@@ -185,17 +191,17 @@ $$\operatorname{Var}(\hat{\theta}) = \operatorname{Var}(\tilde{\theta}) + E[\ope
 
 ### Problem Set 3: Optimal Estimation
 
-1. **(Casella &amp; Berger 7.9)** Use Rao-Blackwell to improve the estimator $\hat{\lambda} = X_1$ for $\lambda$ when $X_i \overset{\text{iid}}{\sim} \operatorname{Poisson}(\lambda)$.
+1. **(cf. Casella &amp; Berger §7.3)** Use Rao-Blackwell to improve the estimator $\hat{\lambda} = X_1$ for $\lambda$ when $X_i \overset{\text{iid}}{\sim} \operatorname{Poisson}(\lambda)$.
 2. **(Exam-style)** Find the UMVUE of $\theta^2$ when $X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\theta, 1)$ using the Lehmann-Scheffé theorem.
 3. **(Exam-style)** Compute the MLE of $(\mu, \sigma^2)$ for a $N(\mu, \sigma^2)$ sample. Show that the MLE of $\sigma^2$ is biased.
 4. **(Proof)** Prove the invariance property of MLEs.
-5. **(Challenge)** Consider $X \sim N(\theta, 1)$ under squared error loss. Show that the MLE $\hat{\theta} = X$ is admissible for $p = 1$, but the James-Stein estimator dominates the coordinatewise MLE $\hat{\theta} = (X_1, \ldots, X_p)$ when $p \geq 3$.
+5. **(Challenge)** Let $X = (X_1, \ldots, X_p) \sim N_p(\theta, I_p)$ under squared-error loss $\|\hat{\theta} - \theta\|^2$. (a) For $p = 1$, show that $\hat{\theta} = X$ is admissible (e.g. via a limiting-Bayes argument). (b) For $p \geq 3$, use Stein's lemma $E[(X_i - \theta_i) g(X)] = E[\partial_i g(X)]$ to show that the James-Stein estimator $\hat{\theta}_{JS} = \left(1 - \frac{p-2}{\|X\|^2}\right)X$ has strictly smaller risk than $X$ for every $\theta$, so the MLE is inadmissible. ($X$ is also admissible when $p = 2$.)
 
 ---
 
 ## Study Guide &amp; Exam Preparation
 
-> [!IMPORTANT]
+{: .important }
 > **Key Theorems for Statistical Theory I**
 >
 > - **Fisher-Neyman Factorization** — the primary tool for identifying sufficient statistics

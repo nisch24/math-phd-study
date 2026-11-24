@@ -67,14 +67,19 @@ for k, x, fx in hist:
     print(f"  iter {k}: x = {x:.15f}, f(x) = {fx:.2e}")
 ```
 
-### C++ Implementation (with Eigen)
+### C++17 Implementation
+
+Standard library only. Eigen is needed for the multivariate version in Exercise 1. Compile with `g++ -std=c++17 -O2 newton.cpp`.
 
 ```cpp
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 #include <functional>
-#include <vector>
+#include <stdexcept>
 #include <tuple>
+#include <utility>
+#include <vector>
 
 using RootHistory = std::vector<std::tuple<int, double, double>>;
 
@@ -103,7 +108,8 @@ int main() {
     auto f = [](double x) { return x*x - 2.0; };
     auto df = [](double x) { return 2.0*x; };
     auto [root, hist] = newton_method(f, df, 1.0);
-    std::cout << "Root: " << root << std::endl;
+    std::cout << std::setprecision(15) << "Root: " << root
+              << " (" << hist.size() << " iterations)" << std::endl;
     return 0;
 }
 ```
@@ -149,8 +155,10 @@ def grad_rosenbrock(x):
     dy = 200*(x[1] - x[0]**2)
     return np.array([dx, dy])
 
-x_opt, hist = gradient_descent(grad_rosenbrock, [-1.0, 1.0], f=rosenbrock, lr=0.001)
-print(f"Optimum: {x_opt}")  # Should be near [1, 1]
+x_opt, hist = gradient_descent(grad_rosenbrock, [-1.0, 1.0], f=rosenbrock, lr=0.001, max_iter=50000)
+print(f"Optimum: {x_opt} after {len(hist)} iterations")  # ≈ [1, 1], but only after ~44,000 steps
+# With the default max_iter=10000 it stops near [0.992, 0.985]: fixed-step gradient descent
+# crawls along Rosenbrock's curved valley. Compare BFGS in Section 5 (~30 iterations).
 ```
 
 ---
@@ -173,7 +181,6 @@ def power_iteration_svd(A, num_components=1, max_iter=1000, tol=1e-10):
     Compute the top singular values/vectors of A via power iteration.
     """
     m, n = A.shape
-    ATA = A.T @ A
     singular_values = []
     right_vectors = []
     left_vectors = []
@@ -225,12 +232,13 @@ By the Strong Law: $\hat{I}_n \xrightarrow{\text{a.s.}} I$. By the CLT: $\sqrt{n
 ### Python Implementation
 
 ```python
+import math
 import numpy as np
 
 def monte_carlo_integrate(g, a, b, n=100000):
     """
     Estimate the integral of g from a to b using Monte Carlo.
-    Returns estimate\u00b1 95% CI.
+    Returns (estimate, half-width of an approximate 95% CI).
     """
     X = np.random.uniform(a, b, size=n)
     gX = g(X)
@@ -242,7 +250,7 @@ def monte_carlo_integrate(g, a, b, n=100000):
 # Exact value: sqrt(pi)/2 * erf(1) ≈ 0.7468
 est, ci = monte_carlo_integrate(lambda x: np.exp(-x**2), 0, 1)
 print(f"Estimate: {est:.6f} ± {ci:.6f}")
-print(f"Exact:    {0.5 * np.sqrt(np.pi) * 0.8427:.6f}")  # erf(1) ≈ 0.8427
+print(f"Exact:    {0.5 * math.sqrt(math.pi) * math.erf(1):.6f}")  # 0.746824
 ```
 
 ---
@@ -280,3 +288,5 @@ print(f"Gradient evaluations: {result.njev}")
 3. **Implement the power method** for the largest eigenvalue of a symmetric matrix. Verify against `np.linalg.eigh`.
 4. **Implement importance sampling** to estimate $P(X > 4)$ where $X \sim N(0,1)$. Compare with naive Monte Carlo.
 5. **Implement L-BFGS** (limited-memory BFGS) from scratch using the two-loop recursion algorithm from Nocedal & Wright Chapter 7.
+6. **Simulate MLE asymptotics (Module C)**: For $X_i \sim \text{Exponential}(\lambda)$, simulate $\sqrt{n}(\hat{\lambda}_n - \lambda)$ for $n = 10, 100, 1000$ and compare its histogram with the $N(0, \lambda^2)$ limit. Then check the coverage of the Wald interval $\hat{\lambda}_n \pm 1.96\,\hat{\lambda}_n/\sqrt{n}$ over 10,000 replications.
+7. **The bootstrap (Module C)**: Implement the nonparametric bootstrap for the standard error of the sample median. Compare it with the asymptotic formula $1/(2 f(m)\sqrt{n})$ for $N(0,1)$ data, where $m$ is the population median, and with the true sampling variability estimated by simulation.

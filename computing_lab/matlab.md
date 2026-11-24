@@ -34,19 +34,26 @@ disp(V);
 % Verify: A = V * D * V'
 fprintf('Reconstruction error: %.2e\n', norm(A - V*D*V', 'fro'));
 
-% Rayleigh quotient visualization
+% Rayleigh quotient on the unit circle of the x1-x2 plane.
+% Restricted to this plane, R(x) ranges exactly over [mu_1, mu_2], the
+% eigenvalues of the leading 2x2 block A(1:2,1:2) -- NOT over
+% [lambda_min(A), lambda_max(A)]. Cauchy interlacing guarantees
+% lambda_1 <= mu_1 <= lambda_2 <= mu_2 <= lambda_3.
 theta = linspace(0, 2*pi, 200);
-x_unit = [cos(theta); sin(theta); zeros(1,200)]; % unit circle in R^3
-for i = 1:length(theta)
-    x = x_unit(:,i);
+R = zeros(size(theta));
+for i = 1:numel(theta)
+    x = [cos(theta(i)); sin(theta(i)); 0];
     R(i) = (x'*A*x) / (x'*x);
 end
-figure;
+mu = eig(A(1:2, 1:2));
+figure; hold on;
 plot(theta, R, 'b-', 'LineWidth', 2);
-yline(D(1,1), 'r--', '\lambda_{min}');
-yline(D(3,3), 'r--', '\lambda_{max}');
+yline(mu(1), 'k:', '\mu_1'); yline(mu(2), 'k:', '\mu_2');
+yline(D(1,1), 'r--', '\lambda_{min}(A)');
+yline(D(3,3), 'r--', '\lambda_{max}(A)');
 xlabel('\theta'); ylabel('Rayleigh Quotient R(x)');
-title('Rayleigh Quotient on Unit Circle');
+title('Rayleigh Quotient on a 2-D Slice: Cauchy Interlacing');
+hold off;
 ```
 
 ### 1.2 Singular Value Decomposition
@@ -99,13 +106,7 @@ fprintf('Solution error vs direct: %.2e\n', norm(x - B\b));
 ### 2.1 Unconstrained Optimization with `fminunc`
 
 ```matlab
-%% Rosenbrock function optimization
-rosenbrock = @(x) (1 - x(1))^2 + 100*(x(2) - x(1)^2)^2;
-
-% Gradient (for faster convergence)
-grad_rosen = @(x) [-2*(1-x(1)) - 400*x(1)*(x(2)-x(1)^2);
-                     200*(x(2)-x(1)^2)];
-
+%% Rosenbrock function optimization (save as a script file)
 options = optimoptions('fminunc', ...
     'Algorithm', 'quasi-newton', ...
     'SpecifyObjectiveGradient', true, ...
@@ -113,12 +114,23 @@ options = optimoptions('fminunc', ...
     'MaxIterations', 1000);
 
 x0 = [-1; 1];
-[x_opt, fval, ~, output] = fminunc(@(x) deal(rosenbrock(x), grad_rosen(x)), ...
-    x0, options);
+[x_opt, fval, ~, output] = fminunc(@rosenbrock_with_grad, x0, options);
 
 fprintf('\nOptimum: [%.6f, %.6f]\n', x_opt);
 fprintf('Function value: %.2e\n', fval);
 fprintf('Iterations: %d\n', output.iterations);
+
+% Local functions must come at the END of a script (R2016b+).
+% Returning the gradient as a second output, guarded by nargout, is the
+% documented pattern; wrapping deal() in an anonymous function errors
+% whenever the solver requests only one output.
+function [f, g] = rosenbrock_with_grad(x)
+    f = (1 - x(1))^2 + 100*(x(2) - x(1)^2)^2;
+    if nargout > 1
+        g = [-2*(1 - x(1)) - 400*x(1)*(x(2) - x(1)^2);
+              200*(x(2) - x(1)^2)];
+    end
+end
 ```
 
 ### 2.2 Constrained Optimization with `fmincon`
@@ -140,30 +152,36 @@ fprintf('Constraint: x1 + x2 = %.4f (expected 1.0)\n', sum(x_opt));
 ### 2.3 Convergence Visualization
 
 ```matlab
-%% Compare steepest descent vs BFGS on a quadratic
-A = [10, 1; 1, 1];  % condition number = ~10.1
+%% Steepest descent with exact line search on a quadratic, vs. the theoretical rate
+A = [10, 1; 1, 1];   % eigenvalues ~0.890 and ~10.110, so cond(A) ~ 11.4
 b = [1; 1];
-f = @(x) 0.5*x'*A*x - b'*x;
 grad_f = @(x) A*x - b;
 x_exact = A \ b;
+kappa = cond(A);
+rate  = (kappa - 1) / (kappa + 1);   % per-step contraction in the A-norm
 
-% Steepest descent
-x = [5; 5]; hist_sd = x';
+A_norm = @(e) sqrt(e' * A * e);
+x = [5; 5];
+err = A_norm(x - x_exact);
 for k = 1:200
     g = grad_f(x);
-    alpha = (g'*g) / (g'*A*g);  % exact line search for quadratic
+    if norm(g) < 1e-14, break; end   % avoid 0/0 in alpha once converged
+    alpha = (g'*g) / (g'*A*g);       % exact line search for a quadratic
     x = x - alpha*g;
-    hist_sd = [hist_sd; x'];
+    err(end+1) = A_norm(x - x_exact); %#ok<AGROW>
 end
 
-% Plot convergence
-errors_sd = vecnorm(hist_sd' - x_exact)';
+iters = 0:numel(err)-1;
 figure;
-semilogy(errors_sd, 'b-', 'LineWidth', 2);
-xlabel('Iteration'); ylabel('||x_k - x*||');
-title('Steepest Descent Convergence');
-grid on;
+semilogy(iters, err, 'b-', 'LineWidth', 2); hold on;
+semilogy(iters, err(1) * rate.^iters, 'r--', 'LineWidth', 1.5);
+xlabel('Iteration k'); ylabel('||x_k - x^*||_A');
+legend('steepest descent', '((\kappa-1)/(\kappa+1))^k bound');
+title('Steepest Descent: Linear Convergence Governed by \kappa(A)');
+grid on; hold off;
 ```
+
+The A-norm error satisfies $\|x_k - x^*\|_A \leq \left(\frac{\kappa-1}{\kappa+1}\right)^k \|x_0 - x^*\|_A$, which is the square root of the function-value bound in Nonlinear Optimization I. Try `A = [100, 1; 1, 1]` to watch the rate degrade.
 
 ---
 
@@ -209,4 +227,4 @@ fprintf('Var(B(%.1f)) = %.4f (expected %.1f)\n', t_test, var(samples), t_test);
 2. **Image compression via SVD**: Load an image as a matrix, compute the SVD, and reconstruct using rank-$k$ approximations for $k = 1, 5, 20, 50$. Plot the reconstruction error vs. $k$.
 3. **Implement steepest descent from scratch**: Compare convergence on $f(x) = x^T A x / 2$ for well-conditioned ($\kappa = 2$) and ill-conditioned ($\kappa = 100$) matrices.
 4. **Interior-point method**: Implement a basic log-barrier method for a small LP with 3 variables and 5 constraints. Plot the central path.
-5. **Random walk simulation**: Simulate a 2D random walk and verify the CLT: plot the histogram of $S_n / \sqrt{n}$ for large $n$ and overlay the Gaussian density.
+5. **Random walk simulation**: Simulate many independent simple symmetric random walks ($\pm 1$ steps) and verify the CLT: plot the histogram of $S_n / \sqrt{n}$ for large $n$ and overlay the $N(0,1)$ density. Extension: for the 2-D lattice walk (each step one of the four unit vectors), show that $S_n/\sqrt{n}$ is approximately $N(0, \tfrac{1}{2} I_2)$ and plot the joint histogram.

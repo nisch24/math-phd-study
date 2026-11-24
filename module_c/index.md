@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Module C — Statistics & Statistical Learning"
-nav_order: 4
+nav_order: 6
 has_children: true
 permalink: /module_c/
 ---
@@ -11,7 +11,7 @@ permalink: /module_c/
   <p>From data to inference. The rigorous framework for estimation, hypothesis testing, and the asymptotic behavior of estimators.</p>
 </div>
 
-> Statistical Theory bridges measure-theoretic probability with the practical tools used throughout applied mathematics — from maximum likelihood estimation and the Cramér-Rao bound to the bootstrap. These courses develop the theoretical justification for why statistical procedures work.
+> Statistical Theory bridges measure-theoretic probability with the practical tools used throughout applied mathematics — from maximum likelihood estimation and the Cramér-Rao bound to likelihood-ratio tests, Bayesian inference, and decision theory (the bootstrap is covered as a simulation exercise in the Computing Lab). These courses develop the theoretical justification for why statistical procedures work.
 
 ---
 

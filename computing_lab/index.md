@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Computing Laboratory"
-nav_order: 7
+nav_order: 10
 has_children: true
 permalink: /computing_lab/
 ---
@@ -51,7 +51,7 @@ permalink: /computing_lab/
   <div class="step-card">
     <div class="step-number">📊</div>
     <div class="step-title">MATLAB R2023a+</div>
-    <div class="step-desc">Requires the Optimization Toolbox for Module D exercises. Student licenses are available through JHU IT.</div>
+    <div class="step-desc">Requires the Optimization Toolbox for Module D exercises. Student licenses are usually available through your university; GNU Octave runs most of the non-toolbox examples for free.</div>
   </div>
   <div class="step-card">
     <div class="step-number">📄</div>

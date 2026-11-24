@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Module A — Analysis & Linear Algebra"
-nav_order: 2
+nav_order: 4
 has_children: true
 permalink: /module_a/
 ---
@@ -39,20 +39,22 @@ permalink: /module_a/
 | Core object | Metric and function spaces | Linear operators on $\mathbb{C}^n$ |
 | Key theorem | Inverse Function Theorem | Spectral Theorem (Hermitian) |
 | Key tool | Banach Fixed-Point Theorem | Courant-Fischer min-max theorem |
-| Exam weight | ~50% of Introductory Exam | ~50% of Introductory Exam |
+| Exam paper | Real Analysis paper of the Introductory Exam | Linear Algebra paper of the Introductory Exam |
 | Primary text | Rudin, *Principles of Mathematical Analysis* | Horn &amp; Johnson, *Matrix Analysis* |
 
 ---
 
 ## Prerequisites
 
-- Undergraduate real analysis (e.g., Rudin Chapters 1–7 or equivalent)
-- Linear algebra at the level of Axler or Friedberg
+- Undergraduate real analysis on $\mathbb{R}$: sequences, series, continuity, differentiation, Riemann integration (Abbott, or Rudin Chapters 1–6)
+- Proof-based linear algebra at the level of Axler or Friedberg–Insel–Spence
 - Comfort with $\varepsilon$-$\delta$ proofs and abstract mathematical reasoning
+
+If any of these are missing, especially if your linear algebra and calculus were computational rather than proof-based, start with [Module 0 — Foundations]({{ site.baseurl }}/module_0/). Module A assumes that material; it does not teach it.
 
 ## Why This Module First?
 
-The Introductory Qualifying Exam at JHU covers both Analysis and Linear Algebra. The concepts developed here — metric space topology, spectral theory, matrix decompositions — recur throughout every subsequent module:
+The JHU Introductory Exam has separate Real Analysis, Linear Algebra, and Probability papers; this module prepares the first two (Module B, Probability Theory I, prepares the third). The concepts developed here — metric space topology, spectral theory, matrix decompositions — recur throughout every subsequent module:
 
 - **Module B (Probability)**: Measure spaces generalize metric spaces; $L^p$ spaces are infinite-dimensional analogs of $\mathbb{R}^n$.
 - **Module C (Statistics)**: Covariance matrices, PCA, and the Fisher Information matrix are all matrix-analytic objects.

@@ -5,9 +5,10 @@
 
 title: "JHU Applied Math & Stats PhD — Self-Study Guide"
 description: >-
-  A complete self-study framework for the Johns Hopkins University
-  PhD in Applied Mathematics and Statistics, covering all core
-  coursework, computing skills, and qualifying exam preparation.
+  A self-study framework modeled on the Johns Hopkins University
+  PhD in Applied Mathematics and Statistics: a foundations bridge,
+  core graduate coursework, differential equations and numerical
+  analysis, computing skills, and qualifying exam preparation.
 
 baseurl: "/math-phd-study"
 url: ""
@@ -36,6 +37,20 @@ footer_content: >-
   <em>This resource is not affiliated with Johns Hopkins University.
   It is an independent study guide based on publicly available course
   descriptions and standard graduate-level textbooks.</em>
+
+# Callouts — kramdown does not render GitHub-style "> [!NOTE]" alerts, so pages
+# use just-the-docs callouts instead:  {: .important }  on the line before a > blockquote.
+callouts_level: quiet
+callouts:
+  important:
+    title: Important
+    color: blue
+  note:
+    title: Note
+    color: purple
+  warning:
+    title: Warning
+    color: red
 
 # Navigation
 nav_sort: case_insensitive
